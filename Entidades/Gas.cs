@@ -41,7 +41,20 @@ namespace Entidades
             this.usoPrincipal = usoPrincipal;
         }
 
+        //POLIMORFISMO TOSTRING
 
+        public override string ToString()
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine(this.subcategoria.ToString());
+            sb.AppendLine(this.lugarDeObtencion);
+            sb.AppendLine(this.usoPrincipal);
+
+            return sb.ToString();
+
+
+        }
 
     }
 }

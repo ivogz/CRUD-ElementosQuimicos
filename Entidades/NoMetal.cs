@@ -50,7 +50,21 @@ namespace Entidades
             this.puntoFusion = puntoFusion;
         }
 
+        //POLIMORFISMO TOSTRING
 
+        public override string ToString()
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine(this.subcategoria.ToString());
+            sb.AppendLine(this.estadoNatural.ToString());
+            sb.AppendLine(this.puntoEbullicion.ToString());
+            sb.AppendLine(this.puntoFusion.ToString());
+
+            return sb.ToString();
+
+
+        }
 
 
     }

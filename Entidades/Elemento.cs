@@ -53,7 +53,7 @@
                 return false;
             }
 
-            return e.nAtomico == e1.nAtomico || e.nombre == e1.nombre || e.simbolo == e1.simbolo || (e.grupo != 0 && e.grupo == e1.grupo && e.periodo == e1.periodo);
+            return e.nAtomico == e1.nAtomico || e.nombre == e1.nombre || e.simbolo == e1.simbolo || (e.grupo != -1 && e.grupo == e1.grupo && e.periodo != -1 && e.periodo == e1.periodo);
         }
 
         public static bool operator !=(Elemento e, Elemento e1)
@@ -75,8 +75,21 @@
             return HashCode.Combine(nAtomico, nombre, simbolo, grupo, periodo);
         }
 
+        public override string ToString()
+        {
 
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
+            sb.AppendLine(this.nAtomico.ToString());
+            sb.AppendLine(this.nombre);
+            sb.AppendLine(this.simbolo);
+            sb.AppendLine(this.grupo.ToString());
+            sb.AppendLine(this.periodo.ToString());
+            sb.AppendLine(this.masaAtomica.ToString());
+            return sb.ToString();
+        }
+
+        // FIN SOBRECARGAS OPERADORES, TO, GETHASH, EQUALS
 
 
 
