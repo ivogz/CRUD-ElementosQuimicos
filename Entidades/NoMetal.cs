@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class NoMetal : Elemento
+    public class NoMetal : Elemento
     {
         protected ECategoriasNoMetales subcategoria;
         protected EEstados estadoNatural;
@@ -48,6 +48,26 @@ namespace Entidades
             this.estadoNatural = estadoNatural;
             this.puntoEbullicion = puntoEbullicion;
             this.puntoFusion = puntoFusion;
+        }
+
+        public override bool ConfirmarTodosAtributosAsignados()
+        {
+            if (base.ConfirmarTodosAtributosAsignados() && this.puntoEbullicion != -1 && this.puntoFusion != -1 && this.estadoNatural.ToString() != "Desconocido")
+                {return true;}
+            else {return false;}
+        }
+
+        protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
+        {
+            double protonesDouble;
+            double neutronesDouble;
+
+            protonesDouble = this.masaAtomica * 0.6;
+            neutronesDouble = this.masaAtomica * 0.4;
+
+            this.neutrones = (int)neutronesDouble;
+            this.protones = (int)protonesDouble;
+
         }
 
         //POLIMORFISMO TOSTRING

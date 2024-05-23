@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Gas : Elemento
+    public class Gas : Elemento
     {
 
         protected ECategoriasGases subcategoria;
@@ -40,6 +40,27 @@ namespace Entidades
             this.lugarDeObtencion = lugarDeObtencion;
             this.usoPrincipal = usoPrincipal;
         }
+
+        public override bool ConfirmarTodosAtributosAsignados()
+        {
+            if (base.ConfirmarTodosAtributosAsignados() && this.lugarDeObtencion != "Se desconoce" && this.usoPrincipal != "Se desconoce") 
+                { return true; }
+            else { return false; }
+        }
+
+        protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
+        {
+            double protonesDouble;
+            double neutronesDouble;
+
+            protonesDouble = this.masaAtomica * 0.7;
+            neutronesDouble = this.masaAtomica * 0.3;
+
+            this.neutrones = (int)neutronesDouble;
+            this.protones = (int)protonesDouble;
+
+        }
+
 
         //POLIMORFISMO TOSTRING
 

@@ -1,4 +1,6 @@
-﻿namespace Entidades
+﻿using System.Runtime.CompilerServices;
+
+namespace Entidades
 {
     public abstract class Elemento
     {
@@ -8,11 +10,13 @@
         protected int grupo;
         protected int periodo;
         protected double masaAtomica;
+        protected int protones;
+        protected int neutrones;
 
 
 
-        public Elemento(int nAtomico, string nombre, string simbolo) 
-        { 
+        public Elemento(int nAtomico, string nombre, string simbolo)
+        {
             this.nAtomico = nAtomico;
             this.nombre = nombre;
             //operador ternario; condicion ? (si es true pasa esto) : (si es false pasa esto)
@@ -21,9 +25,11 @@
             this.grupo = -1;
             this.periodo = -1;
             this.masaAtomica = -1;
+            this.protones = -1;
+            this.neutrones = -1;
         }
 
-        public Elemento(int nAtomico, string nombre, string simbolo, int grupo, int periodo):this(nAtomico,nombre,simbolo)
+        public Elemento(int nAtomico, string nombre, string simbolo, int grupo, int periodo) : this(nAtomico, nombre, simbolo)
         {
             this.grupo = grupo;
             this.periodo = periodo;
@@ -31,13 +37,24 @@
         }
 
         public Elemento(int nAtomico, string nombre, string simbolo, int grupo, int periodo, double masaAtomica)
-            :this(nAtomico,nombre,simbolo,grupo, periodo)
+            : this(nAtomico, nombre, simbolo, grupo, periodo)
         {
             this.masaAtomica = masaAtomica;
+            this.ObtenerAsignarProtonesNeutrones(masaAtomica);
         }
 
+        public virtual string IndicarUbicacion()
+        {
+            return ($"El elemento se ubica en grupo: {this.grupo} período: {this.periodo}");
+        }
 
+        public virtual bool ConfirmarTodosAtributosAsignados()
+        {
+            if (this.grupo != -1 && this.periodo != -1 && this.masaAtomica != -1) { return true; }
+            else { return false; }
+        }
 
+        protected abstract void ObtenerAsignarProtonesNeutrones(double masaAtomica);
 
 
         // SOBRECARGAS OPERADORES, EQUALS Y GETHASHCODE

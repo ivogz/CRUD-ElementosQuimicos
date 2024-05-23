@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Metal : Elemento
+    public class Metal : Elemento
     {
         protected ECategoriasMetales subcategoria;
         protected int cantidadRadioactividad;
@@ -16,6 +16,12 @@ namespace Entidades
         {
             get { return subcategoria; }
             set { this.subcategoria = value; }
+        }
+
+        public int Protones
+        {
+            get { return this.protones; }
+            set { this.protones = value; }
         }
 
         public Metal(int nAtomico, string nombre, string simbolo, ECategoriasMetales subcategoria) : base(nAtomico, nombre, simbolo)
@@ -40,6 +46,26 @@ namespace Entidades
             this.cantidadRadioactividad = cantidadRadioactividad;
             this.color = color;
         }
+
+        public override bool ConfirmarTodosAtributosAsignados()
+        {
+            if (base.ConfirmarTodosAtributosAsignados() && this.cantidadRadioactividad != -1 && this.color != "Se desconoce") 
+                {return true;}
+            else {return false;}
+        }
+
+        protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
+        {
+            double protonesDouble;
+            double neutronesDouble;
+
+            protonesDouble = this.masaAtomica / 2 ;
+            neutronesDouble = this.masaAtomica / 2;
+
+            this.neutrones = (int)neutronesDouble;
+            this.protones = (int)protonesDouble;
+        }
+
 
         //POLIMORFISMO TOSTRING
 
