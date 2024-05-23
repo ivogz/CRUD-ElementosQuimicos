@@ -4,6 +4,7 @@ namespace Entidades
 {
     public abstract class Elemento
     {
+        //ATRIBUTOS
         protected int nAtomico;
         protected string nombre;
         protected string simbolo;
@@ -12,7 +13,59 @@ namespace Entidades
         protected double masaAtomica;
         protected int protones;
         protected int neutrones;
+        //ATRIBUTOS
 
+        //PROPIEDADES
+
+        public int NAtomico
+        {
+            get { return this.nAtomico; }
+            set { this.nAtomico = value; }
+        }
+
+        public string Nombre
+        {
+            get { return this.nombre; }
+            set { this.nombre = value; }
+        }
+
+        public string Simbolo
+        {
+            get { return this.simbolo; }
+            set { this.simbolo = value; }
+        }
+
+        public int Grupo
+        {
+            get { return this.grupo; }
+            set { this.grupo = value; }
+        }
+
+        public int Periodo
+        {
+            get { return this.periodo; }
+            set { this.periodo = value; }
+        }
+
+        public double MasaAtomica
+        {
+            get { return this.masaAtomica; }
+            set { this.masaAtomica = value; }
+        }
+
+        public int Protones
+        {
+            get { return this.protones; }
+            set { this.protones = value; }
+        }
+
+        public int Neutrones
+        {
+            get { return this.neutrones; }
+            set { this.neutrones = value; }
+        }
+
+        //PROPIEDADES
 
 
         public Elemento(int nAtomico, string nombre, string simbolo)

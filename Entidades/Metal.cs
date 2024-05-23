@@ -56,11 +56,9 @@ namespace Entidades
 
         protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
         {
-            double protonesDouble;
-            double neutronesDouble;
 
-            protonesDouble = this.masaAtomica / 2 ;
-            neutronesDouble = this.masaAtomica / 2;
+            double protonesDouble = this.masaAtomica / 2 ;
+            double neutronesDouble = this.masaAtomica / 2;
 
             this.neutrones = (int)neutronesDouble;
             this.protones = (int)protonesDouble;

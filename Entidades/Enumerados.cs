@@ -31,3 +31,16 @@ public enum ETamaños
     Mediano,
     Chico,
 }
+
+public enum AtributosElemento
+{
+
+    NumeroAtomico,
+    Nombre,
+    Simbolo,
+    Grupo,
+    Periodo,
+    MasaAtomica,
+    Protones,
+    Neutrones
+}
