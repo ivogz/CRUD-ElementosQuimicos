@@ -23,3 +23,11 @@ public enum EEstados
     Liquido,
     Gaseoso
 }
+
+public enum ETamaños 
+{
+    Enorme,
+    Grande,
+    Mediano,
+    Chico,
+}
