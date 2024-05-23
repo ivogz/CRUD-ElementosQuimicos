@@ -15,7 +15,22 @@ namespace Entidades
         public ECategoriasMetales Categoria
         {
             get { return subcategoria; }
-            set { subcategoria = value; }
+            set { this.subcategoria = value; }
+        }
+
+        public Metal(int nAtomico, string nombre, string simbolo, ECategoriasMetales subcategoria) : base(nAtomico, nombre, simbolo)
+        {
+            this.subcategoria=subcategoria;
+            this.cantidadRadioactividad = -1;
+            this.color = "Se desconoce";
+        }
+
+        public Metal(int nAtomico, string nombre, string simbolo, int grupo, int periodo, ECategoriasMetales subcategoria) 
+            : this(nAtomico, nombre, simbolo, subcategoria)
+        {
+            base.grupo = grupo;
+            base.periodo = periodo;
+
         }
 
         public Metal(int nAtomico, string nombre, string simbolo, int grupo, int periodo, ECategoriasMetales subcategoria, double masaAtomica, int cantidadRadioactividad, string color) :
@@ -25,8 +40,6 @@ namespace Entidades
             this.cantidadRadioactividad = cantidadRadioactividad;
             this.color = color;
         }
-
-
 
 
     }

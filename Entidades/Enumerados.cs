@@ -16,3 +16,10 @@ public enum ECategoriasNoMetales
 {
     NoMetalReactivo
 }
+public enum EEstados
+{
+    Desconocido,
+    Solido,
+    Liquido,
+    Gaseoso
+}
