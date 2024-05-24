@@ -4,6 +4,9 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+
+        string rutaRaizProyecto = AppDomain.CurrentDomain.BaseDirectory;
+
         Laboratorio labo = new Laboratorio("Laboratorio facultad", "Avellaneda", ETamaños.Mediano);
 
         Metal gz = new Metal(17, "Gonzalez", "Gz", 9, 11, ECategoriasMetales.MetalPostransicional, 230.450, 9000, "rojo");

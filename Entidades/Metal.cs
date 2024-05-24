@@ -18,12 +18,6 @@ namespace Entidades
             set { this.subcategoria = value; }
         }
 
-        public int Protones
-        {
-            get { return this.protones; }
-            set { this.protones = value; }
-        }
-
         public Metal(int nAtomico, string nombre, string simbolo, ECategoriasMetales subcategoria) : base(nAtomico, nombre, simbolo)
         {
             this.subcategoria=subcategoria;
