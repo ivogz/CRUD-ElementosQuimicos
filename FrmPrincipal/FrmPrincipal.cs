@@ -6,7 +6,7 @@ namespace FrmPrincipal
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
+            this.Text = "Formulario principal.";
 
         }
 

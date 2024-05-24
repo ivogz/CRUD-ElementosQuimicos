@@ -19,7 +19,7 @@ namespace Frm
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
+            this.Text = "Formulario login.";
 
             Serializacion usuariosData = new Serializacion("./MOCK_DATA.json");
             this.Usuarios = usuariosData.DeserializarJson();
