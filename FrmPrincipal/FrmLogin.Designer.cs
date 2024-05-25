@@ -67,6 +67,7 @@
             // btnIngresar
             // 
             btnIngresar.BackColor = Color.PaleTurquoise;
+            btnIngresar.Cursor = Cursors.Hand;
             btnIngresar.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnIngresar.ForeColor = SystemColors.ControlText;
             btnIngresar.Location = new Point(32, 186);

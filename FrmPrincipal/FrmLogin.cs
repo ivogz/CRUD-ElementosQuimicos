@@ -34,16 +34,17 @@ namespace Frm
                 if (u.Correo == this.txtCorreo.Text && u.Clave == this.txtContraseña.Text)
                 {
                     loginExitoso = true;
-                } 
+                }
             }
 
             if (loginExitoso)
             {
                 this.DialogResult = DialogResult.OK;
-            } else { MessageBox.Show("Error, ingrese datos correctos"); }
+            }
+            else { MessageBox.Show("Error, ingrese datos correctos"); }
 
 
-            
+
         }
     }
 }

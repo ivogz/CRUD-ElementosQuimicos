@@ -1,4 +1,4 @@
-﻿namespace FrmPrincipal
+﻿namespace Frm
 {
     partial class FrmPrincipal
     {
@@ -35,12 +35,26 @@
             btnAñadir = new Button();
             btnModificar = new Button();
             BtnEliminar = new Button();
-            listView1 = new ListView();
+            lstVisor = new ListView();
+            groupBox1 = new GroupBox();
+            rdoNeutrones = new RadioButton();
+            rdoPeriodo = new RadioButton();
+            rdoProtones = new RadioButton();
+            rdoNombre = new RadioButton();
+            rdoSimbolo = new RadioButton();
+            rdoMasaAtomica = new RadioButton();
+            rdoNumeroAtomico = new RadioButton();
+            rdoGrupo = new RadioButton();
+            rdoAscendente = new RadioButton();
+            rdoDescendente = new RadioButton();
+            btnAñadirLaboratorio = new Button();
             grpElementos.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // rbtMetal
             // 
+            rbtMetal.Checked = true;
             rbtMetal.Location = new Point(204, 22);
             rbtMetal.Name = "rbtMetal";
             rbtMetal.Size = new Size(100, 25);
@@ -56,9 +70,8 @@
             rbtNoMetal.Name = "rbtNoMetal";
             rbtNoMetal.Size = new Size(100, 25);
             rbtNoMetal.TabIndex = 1;
-            rbtNoMetal.TabStop = true;
             rbtNoMetal.Text = "No Metal";
-            rbtNoMetal.UseVisualStyleBackColor = true;
+            rbtNoMetal.UseVisualStyleBackColor = false;
             rbtNoMetal.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // rbtGas
@@ -67,7 +80,6 @@
             rbtGas.Name = "rbtGas";
             rbtGas.Size = new Size(100, 25);
             rbtGas.TabIndex = 2;
-            rbtGas.TabStop = true;
             rbtGas.Text = "Gas";
             rbtGas.UseVisualStyleBackColor = true;
             rbtGas.CheckedChanged += radioButton3_CheckedChanged;
@@ -87,54 +99,200 @@
             // 
             // btnAñadir
             // 
+            btnAñadir.BackColor = Color.PaleTurquoise;
+            btnAñadir.Cursor = Cursors.Hand;
             btnAñadir.Location = new Point(23, 28);
             btnAñadir.Name = "btnAñadir";
             btnAñadir.Size = new Size(150, 75);
             btnAñadir.TabIndex = 3;
             btnAñadir.Text = "Añadir";
-            btnAñadir.UseVisualStyleBackColor = true;
+            btnAñadir.UseVisualStyleBackColor = false;
             // 
             // btnModificar
             // 
+            btnModificar.BackColor = Color.PaleTurquoise;
+            btnModificar.Cursor = Cursors.Hand;
             btnModificar.Location = new Point(352, 424);
             btnModificar.Margin = new Padding(12);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(150, 75);
             btnModificar.TabIndex = 4;
             btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.UseVisualStyleBackColor = false;
             // 
             // BtnEliminar
             // 
+            BtnEliminar.BackColor = Color.PaleTurquoise;
+            BtnEliminar.Cursor = Cursors.Hand;
             BtnEliminar.Location = new Point(539, 424);
             BtnEliminar.Margin = new Padding(25);
             BtnEliminar.Name = "BtnEliminar";
             BtnEliminar.Size = new Size(150, 75);
             BtnEliminar.TabIndex = 5;
             BtnEliminar.Text = "Eliminar";
-            BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // lstVisor
             // 
-            listView1.Dock = DockStyle.Top;
-            listView1.Location = new Point(0, 0);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(708, 351);
-            listView1.TabIndex = 6;
-            listView1.UseCompatibleStateImageBehavior = false;
+            lstVisor.Dock = DockStyle.Top;
+            lstVisor.Location = new Point(0, 0);
+            lstVisor.Name = "lstVisor";
+            lstVisor.Size = new Size(708, 316);
+            lstVisor.TabIndex = 6;
+            lstVisor.UseCompatibleStateImageBehavior = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(rdoNeutrones);
+            groupBox1.Controls.Add(rdoPeriodo);
+            groupBox1.Controls.Add(rdoProtones);
+            groupBox1.Controls.Add(rdoNombre);
+            groupBox1.Controls.Add(rdoSimbolo);
+            groupBox1.Controls.Add(rdoMasaAtomica);
+            groupBox1.Controls.Add(rdoNumeroAtomico);
+            groupBox1.Controls.Add(rdoGrupo);
+            groupBox1.Location = new Point(197, 322);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(499, 71);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Ordenar por:";
+            // 
+            // rdoNeutrones
+            // 
+            rdoNeutrones.AutoSize = true;
+            rdoNeutrones.Location = new Point(377, 46);
+            rdoNeutrones.Name = "rdoNeutrones";
+            rdoNeutrones.Size = new Size(80, 19);
+            rdoNeutrones.TabIndex = 7;
+            rdoNeutrones.Text = "Neutrones";
+            rdoNeutrones.UseVisualStyleBackColor = true;
+            // 
+            // rdoPeriodo
+            // 
+            rdoPeriodo.AutoSize = true;
+            rdoPeriodo.Location = new Point(129, 46);
+            rdoPeriodo.Name = "rdoPeriodo";
+            rdoPeriodo.Size = new Size(66, 19);
+            rdoPeriodo.TabIndex = 6;
+            rdoPeriodo.Text = "Periodo";
+            rdoPeriodo.UseVisualStyleBackColor = true;
+            // 
+            // rdoProtones
+            // 
+            rdoProtones.AutoSize = true;
+            rdoProtones.Location = new Point(377, 22);
+            rdoProtones.Name = "rdoProtones";
+            rdoProtones.Size = new Size(72, 19);
+            rdoProtones.TabIndex = 3;
+            rdoProtones.Text = "Protones";
+            rdoProtones.UseVisualStyleBackColor = true;
+            // 
+            // rdoNombre
+            // 
+            rdoNombre.AutoSize = true;
+            rdoNombre.Location = new Point(129, 22);
+            rdoNombre.Name = "rdoNombre";
+            rdoNombre.Size = new Size(69, 19);
+            rdoNombre.TabIndex = 5;
+            rdoNombre.Text = "Nombre";
+            rdoNombre.UseVisualStyleBackColor = true;
+            // 
+            // rdoSimbolo
+            // 
+            rdoSimbolo.AutoSize = true;
+            rdoSimbolo.Location = new Point(253, 22);
+            rdoSimbolo.Name = "rdoSimbolo";
+            rdoSimbolo.Size = new Size(69, 19);
+            rdoSimbolo.TabIndex = 4;
+            rdoSimbolo.Text = "Simbolo";
+            rdoSimbolo.UseVisualStyleBackColor = true;
+            // 
+            // rdoMasaAtomica
+            // 
+            rdoMasaAtomica.AutoSize = true;
+            rdoMasaAtomica.Location = new Point(253, 46);
+            rdoMasaAtomica.Name = "rdoMasaAtomica";
+            rdoMasaAtomica.Size = new Size(101, 19);
+            rdoMasaAtomica.TabIndex = 2;
+            rdoMasaAtomica.Text = "Masa Atomica";
+            rdoMasaAtomica.UseVisualStyleBackColor = true;
+            // 
+            // rdoNumeroAtomico
+            // 
+            rdoNumeroAtomico.AutoSize = true;
+            rdoNumeroAtomico.Checked = true;
+            rdoNumeroAtomico.Location = new Point(5, 22);
+            rdoNumeroAtomico.Name = "rdoNumeroAtomico";
+            rdoNumeroAtomico.Size = new Size(88, 19);
+            rdoNumeroAtomico.TabIndex = 0;
+            rdoNumeroAtomico.TabStop = true;
+            rdoNumeroAtomico.Text = "Nº Atomico";
+            rdoNumeroAtomico.UseVisualStyleBackColor = true;
+            // 
+            // rdoGrupo
+            // 
+            rdoGrupo.AutoSize = true;
+            rdoGrupo.Location = new Point(5, 46);
+            rdoGrupo.Name = "rdoGrupo";
+            rdoGrupo.Size = new Size(58, 19);
+            rdoGrupo.TabIndex = 1;
+            rdoGrupo.Text = "Grupo";
+            rdoGrupo.UseVisualStyleBackColor = true;
+            // 
+            // rdoAscendente
+            // 
+            rdoAscendente.Checked = true;
+            rdoAscendente.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            rdoAscendente.Location = new Point(535, 316);
+            rdoAscendente.Name = "rdoAscendente";
+            rdoAscendente.Size = new Size(80, 15);
+            rdoAscendente.TabIndex = 9;
+            rdoAscendente.TabStop = true;
+            rdoAscendente.Text = "Ascendente";
+            rdoAscendente.UseVisualStyleBackColor = true;
+            rdoAscendente.CheckedChanged += rdoAscendente_CheckedChanged;
+            // 
+            // rdoDescendente
+            // 
+            rdoDescendente.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            rdoDescendente.Location = new Point(616, 316);
+            rdoDescendente.Name = "rdoDescendente";
+            rdoDescendente.Size = new Size(80, 15);
+            rdoDescendente.TabIndex = 8;
+            rdoDescendente.Text = "Descendente";
+            rdoDescendente.UseVisualStyleBackColor = true;
+            // 
+            // btnAñadirLaboratorio
+            // 
+            btnAñadirLaboratorio.BackColor = Color.PaleTurquoise;
+            btnAñadirLaboratorio.Cursor = Cursors.Hand;
+            btnAñadirLaboratorio.Location = new Point(12, 328);
+            btnAñadirLaboratorio.Name = "btnAñadirLaboratorio";
+            btnAñadirLaboratorio.Size = new Size(173, 59);
+            btnAñadirLaboratorio.TabIndex = 4;
+            btnAñadirLaboratorio.Text = "Añadir laboratorio";
+            btnAñadirLaboratorio.UseVisualStyleBackColor = false;
+            btnAñadirLaboratorio.Click += btnAñadirLaboratorio_Click;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(708, 532);
-            Controls.Add(listView1);
+            Controls.Add(rdoAscendente);
+            Controls.Add(rdoDescendente);
+            Controls.Add(btnAñadirLaboratorio);
+            Controls.Add(groupBox1);
+            Controls.Add(lstVisor);
             Controls.Add(BtnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(grpElementos);
             Name = "FrmPrincipal";
             Text = "Form1";
             grpElementos.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -147,6 +305,18 @@
         private Button btnAñadir;
         private Button btnModificar;
         private Button BtnEliminar;
-        private ListView listView1;
+        private ListView lstVisor;
+        private GroupBox groupBox1;
+        private RadioButton rdoNumeroAtomico;
+        private RadioButton rdoSimbolo;
+        private RadioButton rdoProtones;
+        private RadioButton rdoGrupo;
+        private RadioButton rdoMasaAtomica;
+        private RadioButton rdoNeutrones;
+        private RadioButton rdoPeriodo;
+        private RadioButton rdoNombre;
+        private Button btnAñadirLaboratorio;
+        private RadioButton rdoDescendente;
+        private RadioButton rdoAscendente;
     }
 }

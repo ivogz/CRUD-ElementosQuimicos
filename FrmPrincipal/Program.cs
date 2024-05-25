@@ -1,6 +1,4 @@
-using Frm;
-
-namespace FrmPrincipal
+namespace Frm
 {
     internal static class Program
     {
@@ -12,6 +10,10 @@ namespace FrmPrincipal
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+
+
+
+
             ApplicationConfiguration.Initialize();
             FrmLogin frmLogin = new FrmLogin();
             if (frmLogin.ShowDialog() == DialogResult.OK)
