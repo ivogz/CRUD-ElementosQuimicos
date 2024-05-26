@@ -106,7 +106,7 @@
             Controls.Add(lblPuntoDeEbullicion);
             Name = "FrmNoMetal";
             Text = "FrmNoMetal";
-            Controls.SetChildIndex(lblCorreoElectronico, 0);
+            Controls.SetChildIndex(lblElemento, 0);
             Controls.SetChildIndex(btnAñadir, 0);
             Controls.SetChildIndex(lblNAtomico, 0);
             Controls.SetChildIndex(lblSimbolo, 0);

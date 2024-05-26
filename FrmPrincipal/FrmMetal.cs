@@ -14,15 +14,12 @@ namespace Frm
     public partial class FrmMetal : FrmElemento
     {
 
-        private Elemento miElemento;
-
         private ECategoriasMetales subcategoria;
         private int cantidadRadioactividad;
         private string color;
 
         bool boolRadioactividad, boolColor = false;
 
-        public Elemento MiElemento { get { return this.miElemento; } }
         public ECategoriasMetales Subcategoria { get { return this.subcategoria; } }
         public int CantidadRadioactividad { get { return this.cantidadRadioactividad; } }
         public string Color { get { return this.color; } }
@@ -71,7 +68,7 @@ namespace Frm
             {
                 try
                 {
-                    this.miElemento = new Metal(base.NAtomico, base.Nombre, base.Simbolo, base.Grupo, base.Periodo, this.subcategoria, base.MasaAtomica, this.CantidadRadioactividad, this.Color);
+                    this.MiElemento = new Metal(base.NAtomico, base.Nombre, base.Simbolo, base.Grupo, base.Periodo, this.subcategoria, base.MasaAtomica, this.CantidadRadioactividad, this.Color);
                     // Si la creación es exitosa, establecer el resultado del diálogo a OK y cerrar el formulario
                     this.DialogResult = DialogResult.OK;
                     this.Close();

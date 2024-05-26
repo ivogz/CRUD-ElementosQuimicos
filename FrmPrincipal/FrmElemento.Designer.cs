@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblCorreoElectronico = new Label();
+            lblElemento = new Label();
             btnAñadir = new Button();
             txtSimbolo = new TextBox();
             txtNAtomico = new TextBox();
@@ -46,16 +46,16 @@
             txtMAtomica = new TextBox();
             SuspendLayout();
             // 
-            // lblCorreoElectronico
+            // lblElemento
             // 
-            lblCorreoElectronico.BackColor = Color.PaleTurquoise;
-            lblCorreoElectronico.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCorreoElectronico.Location = new Point(54, 9);
-            lblCorreoElectronico.Name = "lblCorreoElectronico";
-            lblCorreoElectronico.Size = new Size(500, 45);
-            lblCorreoElectronico.TabIndex = 4;
-            lblCorreoElectronico.Text = "Elemento";
-            lblCorreoElectronico.TextAlign = ContentAlignment.MiddleCenter;
+            lblElemento.BackColor = Color.PaleTurquoise;
+            lblElemento.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblElemento.Location = new Point(54, 9);
+            lblElemento.Name = "lblElemento";
+            lblElemento.Size = new Size(500, 45);
+            lblElemento.TabIndex = 4;
+            lblElemento.Text = "Elemento";
+            lblElemento.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnAñadir
             // 
@@ -209,7 +209,7 @@
             Controls.Add(lblSimbolo);
             Controls.Add(lblNAtomico);
             Controls.Add(btnAñadir);
-            Controls.Add(lblCorreoElectronico);
+            Controls.Add(lblElemento);
             Name = "FrmElemento";
             Text = "FrmElemento";
             ResumeLayout(false);
@@ -218,7 +218,7 @@
 
         #endregion
 
-        protected Label lblCorreoElectronico;
+        protected Label lblElemento;
         protected TextBox txtSimbolo;
         protected TextBox txtNAtomico;
         protected Label lblMasaAtomica;

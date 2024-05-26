@@ -17,11 +17,8 @@ namespace Frm
         private EEstados estado;
         private double puntoDeEbullicion, puntoDeFusion;
 
-        bool boolPuntoDeEbullicion, boolPuntoDeFusion;
+        bool boolPuntoDeEbullicion, boolPuntoDeFusion = false;
 
-        private Elemento miElemento;
-
-        public Elemento MiElemento { get { return this.miElemento; } }
         public ECategoriasNoMetales Subcategoria { get { return this.subcategoria; } }
         public EEstados Estado { get { return this.estado; } }
         public double PuntoDeEbullicion { get { return this.puntoDeEbullicion; } }
@@ -63,8 +60,8 @@ namespace Frm
         private void btnAñadir_Click(object sender, EventArgs e)
         {
 
-            boolPuntoDeFusion = TryParseCambiarBandera(txtPuntoDeFusion.Text, out this.puntoDeFusion, "Radioactividad");
-            boolPuntoDeEbullicion = TryParseCambiarBandera(txtPuntoDeEbullicion.Text, out this.puntoDeEbullicion, "Radioactividad");
+            boolPuntoDeFusion = TryParseCambiarBandera(txtPuntoDeFusion.Text, out this.puntoDeFusion, "Punto de fusion");
+            boolPuntoDeEbullicion = TryParseCambiarBandera(txtPuntoDeEbullicion.Text, out this.puntoDeEbullicion, "Punto de ebullicion");
 
             this.subcategoria = (ECategoriasNoMetales)this.cboSubcategoria.SelectedItem;
             this.estado = (EEstados)this.cboEstadoNatural.SelectedItem;
@@ -73,7 +70,7 @@ namespace Frm
             {
                 try
                 {
-                    this.miElemento = new NoMetal(base.NAtomico, base.Nombre, base.Simbolo, base.Grupo, base.Periodo, base.MasaAtomica, this.Estado, this.PuntoDeEbullicion, this.PuntoDeFusion);
+                    this.MiElemento = new NoMetal(base.NAtomico, base.Nombre, base.Simbolo, base.Grupo, base.Periodo, base.MasaAtomica, this.Estado, this.PuntoDeEbullicion, this.PuntoDeFusion);
                     // Si la creación es exitosa, establecer el resultado del diálogo a OK y cerrar el formulario
                     this.DialogResult = DialogResult.OK;
                     this.Close();

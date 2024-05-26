@@ -36,7 +36,7 @@
             // 
             // lblCorreoElectronico
             // 
-            lblCorreoElectronico.Text = "Elemento Metal";
+            lblElemento.Text = "Elemento Metal";
             // 
             // btnAñadir
             // 
@@ -90,7 +90,7 @@
             Text = "FrmMetal";
             Controls.SetChildIndex(txtNAtomico, 0);
             Controls.SetChildIndex(txtSimbolo, 0);
-            Controls.SetChildIndex(lblCorreoElectronico, 0);
+            Controls.SetChildIndex(lblElemento, 0);
             Controls.SetChildIndex(btnAñadir, 0);
             Controls.SetChildIndex(lblNAtomico, 0);
             Controls.SetChildIndex(lblSimbolo, 0);

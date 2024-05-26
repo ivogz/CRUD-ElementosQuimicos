@@ -19,6 +19,10 @@ namespace Frm
 
         private bool boolNAtomico, boolGrupo, boolPeriodo, boolMasaAtomica, boolSimbolo, boolNombre = false;
 
+        Elemento miElemento;
+
+        public Elemento MiElemento { get { return this.miElemento; }  set { this.miElemento = value; } }
+
         public int NAtomico { get { return this.nAtomico; } }
         public int Grupo { get { return this.grupo; } }
         public int Periodo { get { return this.periodo; } }

@@ -87,11 +87,19 @@ namespace Frm
             {
                 FrmNoMetal frmNoMetal = new FrmNoMetal();
                 frmNoMetal.ShowDialog();
+                if (frmNoMetal.DialogResult == DialogResult.OK)
+                {
+                    MessageBox.Show(frmNoMetal.MiElemento.ToString());
+                }
             }
             else
             {
-                //FrmGas frmGas = new FrmGas();
-                //frmGas.ShowDialog();
+                FrmGas frmGas = new FrmGas();
+                frmGas.ShowDialog();
+                if (frmGas.DialogResult == DialogResult.OK)
+                {
+                    MessageBox.Show(frmGas.MiElemento.ToString());
+                }
             }
         }
     }
