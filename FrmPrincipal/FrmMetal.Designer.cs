@@ -38,10 +38,10 @@
             // 
             lblCorreoElectronico.Text = "Elemento Metal";
             // 
-            // btnAñadirLaboratorio
+            // btnAñadir
             // 
-            btnAñadirLaboratorio.Text = "Añadir metal";
-            btnAñadirLaboratorio.Click += btnAñadirLaboratorio_Click;
+            btnAñadir.Text = "Añadir metal";
+            btnAñadir.Click += btnAñadir_Click_1;
             // 
             // txtRadioactividad
             // 
@@ -88,8 +88,10 @@
             Controls.Add(lblColor);
             Name = "FrmMetal";
             Text = "FrmMetal";
+            Controls.SetChildIndex(txtNAtomico, 0);
+            Controls.SetChildIndex(txtSimbolo, 0);
             Controls.SetChildIndex(lblCorreoElectronico, 0);
-            Controls.SetChildIndex(btnAñadirLaboratorio, 0);
+            Controls.SetChildIndex(btnAñadir, 0);
             Controls.SetChildIndex(lblNAtomico, 0);
             Controls.SetChildIndex(lblSimbolo, 0);
             Controls.SetChildIndex(lblMasaAtomica, 0);

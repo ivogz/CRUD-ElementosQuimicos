@@ -52,11 +52,11 @@ namespace Frm
 
         private void ActualizarVisor()
         {
-            this.lstVisor.Items.Clear();
+            this.lstVisorLaboratorios.Items.Clear();
 
             foreach (Laboratorio l in this.laboratorios)
             {
-                this.lstVisor.Items.Add(l.ToString()); //+= sino se reemplaza
+                this.lstVisorLaboratorios.Items.Add(l.ToString()); //+= sino se reemplaza
             }
 
         }
@@ -73,8 +73,26 @@ namespace Frm
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            FrmMetal frmMetal = new FrmMetal();
-            frmMetal.ShowDialog();
+
+            if (rbtMetal.Checked == true)
+            {
+                FrmMetal frmMetal = new FrmMetal();
+                frmMetal.ShowDialog();
+                if (frmMetal.DialogResult == DialogResult.OK)
+                {
+                    MessageBox.Show(frmMetal.MiElemento.ToString());
+                }
+            }
+            else if (rbtNoMetal.Checked == true)
+            {
+                FrmNoMetal frmNoMetal = new FrmNoMetal();
+                frmNoMetal.ShowDialog();
+            }
+            else
+            {
+                //FrmGas frmGas = new FrmGas();
+                //frmGas.ShowDialog();
+            }
         }
     }
 }

@@ -35,21 +35,22 @@
             btnAñadir = new Button();
             btnModificar = new Button();
             BtnEliminar = new Button();
-            lstVisor = new ListView();
-            groupBox1 = new GroupBox();
-            rdoNeutrones = new RadioButton();
-            rdoPeriodo = new RadioButton();
-            rdoProtones = new RadioButton();
-            rdoNombre = new RadioButton();
-            rdoSimbolo = new RadioButton();
-            rdoMasaAtomica = new RadioButton();
-            rdoNumeroAtomico = new RadioButton();
-            rdoGrupo = new RadioButton();
-            rdoAscendente = new RadioButton();
-            rdoDescendente = new RadioButton();
+            lstVisorLaboratorios = new ListView();
+            grpbOrdenar = new GroupBox();
+            rbtNeutrones = new RadioButton();
+            rbtPeriodo = new RadioButton();
+            rbtProtones = new RadioButton();
+            rbtNombre = new RadioButton();
+            rbtSimbolo = new RadioButton();
+            rbtMasaAtomica = new RadioButton();
+            rbtNumeroAtomico = new RadioButton();
+            rbtGrupo = new RadioButton();
+            rbtAscendente = new RadioButton();
+            rbtDescendente = new RadioButton();
             btnAñadirLaboratorio = new Button();
+            lstVisorElementos = new ListView();
             grpElementos.SuspendLayout();
-            groupBox1.SuspendLayout();
+            grpbOrdenar.SuspendLayout();
             SuspendLayout();
             // 
             // rbtMetal
@@ -133,137 +134,137 @@
             BtnEliminar.Text = "Eliminar";
             BtnEliminar.UseVisualStyleBackColor = false;
             // 
-            // lstVisor
+            // lstVisorLaboratorios
             // 
-            lstVisor.Dock = DockStyle.Top;
-            lstVisor.Location = new Point(0, 0);
-            lstVisor.Name = "lstVisor";
-            lstVisor.Size = new Size(708, 316);
-            lstVisor.TabIndex = 6;
-            lstVisor.UseCompatibleStateImageBehavior = false;
-            lstVisor.SelectedIndexChanged += lstVisor_SelectedIndexChanged;
+            lstVisorLaboratorios.Dock = DockStyle.Top;
+            lstVisorLaboratorios.Location = new Point(0, 0);
+            lstVisorLaboratorios.Name = "lstVisorLaboratorios";
+            lstVisorLaboratorios.Size = new Size(708, 71);
+            lstVisorLaboratorios.TabIndex = 6;
+            lstVisorLaboratorios.UseCompatibleStateImageBehavior = false;
+            lstVisorLaboratorios.SelectedIndexChanged += lstVisor_SelectedIndexChanged;
             // 
-            // groupBox1
+            // grpbOrdenar
             // 
-            groupBox1.Controls.Add(rdoNeutrones);
-            groupBox1.Controls.Add(rdoPeriodo);
-            groupBox1.Controls.Add(rdoProtones);
-            groupBox1.Controls.Add(rdoNombre);
-            groupBox1.Controls.Add(rdoSimbolo);
-            groupBox1.Controls.Add(rdoMasaAtomica);
-            groupBox1.Controls.Add(rdoNumeroAtomico);
-            groupBox1.Controls.Add(rdoGrupo);
-            groupBox1.Location = new Point(197, 322);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(499, 71);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Ordenar por:";
+            grpbOrdenar.Controls.Add(rbtNeutrones);
+            grpbOrdenar.Controls.Add(rbtPeriodo);
+            grpbOrdenar.Controls.Add(rbtProtones);
+            grpbOrdenar.Controls.Add(rbtNombre);
+            grpbOrdenar.Controls.Add(rbtSimbolo);
+            grpbOrdenar.Controls.Add(rbtMasaAtomica);
+            grpbOrdenar.Controls.Add(rbtNumeroAtomico);
+            grpbOrdenar.Controls.Add(rbtGrupo);
+            grpbOrdenar.Location = new Point(197, 322);
+            grpbOrdenar.Name = "grpbOrdenar";
+            grpbOrdenar.Size = new Size(499, 71);
+            grpbOrdenar.TabIndex = 7;
+            grpbOrdenar.TabStop = false;
+            grpbOrdenar.Text = "Ordenar por:";
             // 
-            // rdoNeutrones
+            // rbtNeutrones
             // 
-            rdoNeutrones.AutoSize = true;
-            rdoNeutrones.Location = new Point(377, 46);
-            rdoNeutrones.Name = "rdoNeutrones";
-            rdoNeutrones.Size = new Size(80, 19);
-            rdoNeutrones.TabIndex = 7;
-            rdoNeutrones.Text = "Neutrones";
-            rdoNeutrones.UseVisualStyleBackColor = true;
+            rbtNeutrones.AutoSize = true;
+            rbtNeutrones.Location = new Point(377, 46);
+            rbtNeutrones.Name = "rbtNeutrones";
+            rbtNeutrones.Size = new Size(80, 19);
+            rbtNeutrones.TabIndex = 7;
+            rbtNeutrones.Text = "Neutrones";
+            rbtNeutrones.UseVisualStyleBackColor = true;
             // 
-            // rdoPeriodo
+            // rbtPeriodo
             // 
-            rdoPeriodo.AutoSize = true;
-            rdoPeriodo.Location = new Point(129, 46);
-            rdoPeriodo.Name = "rdoPeriodo";
-            rdoPeriodo.Size = new Size(66, 19);
-            rdoPeriodo.TabIndex = 6;
-            rdoPeriodo.Text = "Periodo";
-            rdoPeriodo.UseVisualStyleBackColor = true;
+            rbtPeriodo.AutoSize = true;
+            rbtPeriodo.Location = new Point(129, 46);
+            rbtPeriodo.Name = "rbtPeriodo";
+            rbtPeriodo.Size = new Size(66, 19);
+            rbtPeriodo.TabIndex = 6;
+            rbtPeriodo.Text = "Periodo";
+            rbtPeriodo.UseVisualStyleBackColor = true;
             // 
-            // rdoProtones
+            // rbtProtones
             // 
-            rdoProtones.AutoSize = true;
-            rdoProtones.Location = new Point(377, 22);
-            rdoProtones.Name = "rdoProtones";
-            rdoProtones.Size = new Size(72, 19);
-            rdoProtones.TabIndex = 3;
-            rdoProtones.Text = "Protones";
-            rdoProtones.UseVisualStyleBackColor = true;
+            rbtProtones.AutoSize = true;
+            rbtProtones.Location = new Point(377, 22);
+            rbtProtones.Name = "rbtProtones";
+            rbtProtones.Size = new Size(72, 19);
+            rbtProtones.TabIndex = 3;
+            rbtProtones.Text = "Protones";
+            rbtProtones.UseVisualStyleBackColor = true;
             // 
-            // rdoNombre
+            // rbtNombre
             // 
-            rdoNombre.AutoSize = true;
-            rdoNombre.Location = new Point(129, 22);
-            rdoNombre.Name = "rdoNombre";
-            rdoNombre.Size = new Size(69, 19);
-            rdoNombre.TabIndex = 5;
-            rdoNombre.Text = "Nombre";
-            rdoNombre.UseVisualStyleBackColor = true;
+            rbtNombre.AutoSize = true;
+            rbtNombre.Location = new Point(129, 22);
+            rbtNombre.Name = "rbtNombre";
+            rbtNombre.Size = new Size(69, 19);
+            rbtNombre.TabIndex = 5;
+            rbtNombre.Text = "Nombre";
+            rbtNombre.UseVisualStyleBackColor = true;
             // 
-            // rdoSimbolo
+            // rbtSimbolo
             // 
-            rdoSimbolo.AutoSize = true;
-            rdoSimbolo.Location = new Point(253, 22);
-            rdoSimbolo.Name = "rdoSimbolo";
-            rdoSimbolo.Size = new Size(69, 19);
-            rdoSimbolo.TabIndex = 4;
-            rdoSimbolo.Text = "Simbolo";
-            rdoSimbolo.UseVisualStyleBackColor = true;
+            rbtSimbolo.AutoSize = true;
+            rbtSimbolo.Location = new Point(253, 22);
+            rbtSimbolo.Name = "rbtSimbolo";
+            rbtSimbolo.Size = new Size(69, 19);
+            rbtSimbolo.TabIndex = 4;
+            rbtSimbolo.Text = "Simbolo";
+            rbtSimbolo.UseVisualStyleBackColor = true;
             // 
-            // rdoMasaAtomica
+            // rbtMasaAtomica
             // 
-            rdoMasaAtomica.AutoSize = true;
-            rdoMasaAtomica.Location = new Point(253, 46);
-            rdoMasaAtomica.Name = "rdoMasaAtomica";
-            rdoMasaAtomica.Size = new Size(101, 19);
-            rdoMasaAtomica.TabIndex = 2;
-            rdoMasaAtomica.Text = "Masa Atomica";
-            rdoMasaAtomica.UseVisualStyleBackColor = true;
+            rbtMasaAtomica.AutoSize = true;
+            rbtMasaAtomica.Location = new Point(253, 46);
+            rbtMasaAtomica.Name = "rbtMasaAtomica";
+            rbtMasaAtomica.Size = new Size(101, 19);
+            rbtMasaAtomica.TabIndex = 2;
+            rbtMasaAtomica.Text = "Masa Atomica";
+            rbtMasaAtomica.UseVisualStyleBackColor = true;
             // 
-            // rdoNumeroAtomico
+            // rbtNumeroAtomico
             // 
-            rdoNumeroAtomico.AutoSize = true;
-            rdoNumeroAtomico.Checked = true;
-            rdoNumeroAtomico.Location = new Point(5, 22);
-            rdoNumeroAtomico.Name = "rdoNumeroAtomico";
-            rdoNumeroAtomico.Size = new Size(88, 19);
-            rdoNumeroAtomico.TabIndex = 0;
-            rdoNumeroAtomico.TabStop = true;
-            rdoNumeroAtomico.Text = "Nº Atomico";
-            rdoNumeroAtomico.UseVisualStyleBackColor = true;
+            rbtNumeroAtomico.AutoSize = true;
+            rbtNumeroAtomico.Checked = true;
+            rbtNumeroAtomico.Location = new Point(5, 22);
+            rbtNumeroAtomico.Name = "rbtNumeroAtomico";
+            rbtNumeroAtomico.Size = new Size(88, 19);
+            rbtNumeroAtomico.TabIndex = 0;
+            rbtNumeroAtomico.TabStop = true;
+            rbtNumeroAtomico.Text = "Nº Atomico";
+            rbtNumeroAtomico.UseVisualStyleBackColor = true;
             // 
-            // rdoGrupo
+            // rbtGrupo
             // 
-            rdoGrupo.AutoSize = true;
-            rdoGrupo.Location = new Point(5, 46);
-            rdoGrupo.Name = "rdoGrupo";
-            rdoGrupo.Size = new Size(58, 19);
-            rdoGrupo.TabIndex = 1;
-            rdoGrupo.Text = "Grupo";
-            rdoGrupo.UseVisualStyleBackColor = true;
+            rbtGrupo.AutoSize = true;
+            rbtGrupo.Location = new Point(5, 46);
+            rbtGrupo.Name = "rbtGrupo";
+            rbtGrupo.Size = new Size(58, 19);
+            rbtGrupo.TabIndex = 1;
+            rbtGrupo.Text = "Grupo";
+            rbtGrupo.UseVisualStyleBackColor = true;
             // 
-            // rdoAscendente
+            // rbtAscendente
             // 
-            rdoAscendente.Checked = true;
-            rdoAscendente.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
-            rdoAscendente.Location = new Point(535, 316);
-            rdoAscendente.Name = "rdoAscendente";
-            rdoAscendente.Size = new Size(80, 15);
-            rdoAscendente.TabIndex = 9;
-            rdoAscendente.TabStop = true;
-            rdoAscendente.Text = "Ascendente";
-            rdoAscendente.UseVisualStyleBackColor = true;
-            rdoAscendente.CheckedChanged += rdoAscendente_CheckedChanged;
+            rbtAscendente.Checked = true;
+            rbtAscendente.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtAscendente.Location = new Point(535, 316);
+            rbtAscendente.Name = "rbtAscendente";
+            rbtAscendente.Size = new Size(80, 15);
+            rbtAscendente.TabIndex = 9;
+            rbtAscendente.TabStop = true;
+            rbtAscendente.Text = "Ascendente";
+            rbtAscendente.UseVisualStyleBackColor = true;
+            rbtAscendente.CheckedChanged += rdoAscendente_CheckedChanged;
             // 
-            // rdoDescendente
+            // rbtDescendente
             // 
-            rdoDescendente.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
-            rdoDescendente.Location = new Point(616, 316);
-            rdoDescendente.Name = "rdoDescendente";
-            rdoDescendente.Size = new Size(80, 15);
-            rdoDescendente.TabIndex = 8;
-            rdoDescendente.Text = "Descendente";
-            rdoDescendente.UseVisualStyleBackColor = true;
+            rbtDescendente.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtDescendente.Location = new Point(616, 316);
+            rbtDescendente.Name = "rbtDescendente";
+            rbtDescendente.Size = new Size(80, 15);
+            rbtDescendente.TabIndex = 8;
+            rbtDescendente.Text = "Descendente";
+            rbtDescendente.UseVisualStyleBackColor = true;
             // 
             // btnAñadirLaboratorio
             // 
@@ -277,24 +278,34 @@
             btnAñadirLaboratorio.UseVisualStyleBackColor = false;
             btnAñadirLaboratorio.Click += btnAñadirLaboratorio_Click;
             // 
+            // lstVisorElementos
+            // 
+            lstVisorElementos.Dock = DockStyle.Top;
+            lstVisorElementos.Location = new Point(0, 71);
+            lstVisorElementos.Name = "lstVisorElementos";
+            lstVisorElementos.Size = new Size(708, 245);
+            lstVisorElementos.TabIndex = 10;
+            lstVisorElementos.UseCompatibleStateImageBehavior = false;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(708, 532);
-            Controls.Add(rdoAscendente);
-            Controls.Add(rdoDescendente);
+            Controls.Add(lstVisorElementos);
+            Controls.Add(rbtAscendente);
+            Controls.Add(rbtDescendente);
             Controls.Add(btnAñadirLaboratorio);
-            Controls.Add(groupBox1);
-            Controls.Add(lstVisor);
+            Controls.Add(grpbOrdenar);
+            Controls.Add(lstVisorLaboratorios);
             Controls.Add(BtnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(grpElementos);
             Name = "FrmPrincipal";
             Text = "Form1";
             grpElementos.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            grpbOrdenar.ResumeLayout(false);
+            grpbOrdenar.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -307,18 +318,19 @@
         private Button btnAñadir;
         private Button btnModificar;
         private Button BtnEliminar;
-        private ListView lstVisor;
-        private GroupBox groupBox1;
-        private RadioButton rdoNumeroAtomico;
-        private RadioButton rdoSimbolo;
-        private RadioButton rdoProtones;
-        private RadioButton rdoGrupo;
-        private RadioButton rdoMasaAtomica;
-        private RadioButton rdoNeutrones;
-        private RadioButton rdoPeriodo;
-        private RadioButton rdoNombre;
+        private ListView lstVisorLaboratorios;
+        private GroupBox grpbOrdenar;
+        private RadioButton rbtNumeroAtomico;
+        private RadioButton rbtSimbolo;
+        private RadioButton rbtProtones;
+        private RadioButton rbtGrupo;
+        private RadioButton rbtMasaAtomica;
+        private RadioButton rbtNeutrones;
+        private RadioButton rbtPeriodo;
+        private RadioButton rbtNombre;
         private Button btnAñadirLaboratorio;
-        private RadioButton rdoDescendente;
-        private RadioButton rdoAscendente;
+        private RadioButton rbtDescendente;
+        private RadioButton rbtAscendente;
+        private ListView lstVisorElementos;
     }
 }

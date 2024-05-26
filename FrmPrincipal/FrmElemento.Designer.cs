@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             lblCorreoElectronico = new Label();
-            btnAñadirLaboratorio = new Button();
+            btnAñadir = new Button();
             txtSimbolo = new TextBox();
             txtNAtomico = new TextBox();
             lblMasaAtomica = new Label();
@@ -57,17 +57,17 @@
             lblCorreoElectronico.Text = "Elemento";
             lblCorreoElectronico.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnAñadirLaboratorio
+            // btnAñadir
             // 
-            btnAñadirLaboratorio.BackColor = Color.PaleTurquoise;
-            btnAñadirLaboratorio.Cursor = Cursors.Hand;
-            btnAñadirLaboratorio.Location = new Point(435, 467);
-            btnAñadirLaboratorio.Name = "btnAñadirLaboratorio";
-            btnAñadirLaboratorio.Size = new Size(158, 47);
-            btnAñadirLaboratorio.TabIndex = 8;
-            btnAñadirLaboratorio.Text = "Añadir laboratorio";
-            btnAñadirLaboratorio.UseVisualStyleBackColor = false;
-            btnAñadirLaboratorio.Click += btnAñadirLaboratorio_Click;
+            btnAñadir.BackColor = Color.PaleTurquoise;
+            btnAñadir.Cursor = Cursors.Hand;
+            btnAñadir.Location = new Point(435, 467);
+            btnAñadir.Name = "btnAñadir";
+            btnAñadir.Size = new Size(158, 47);
+            btnAñadir.TabIndex = 8;
+            btnAñadir.Text = "Añadir";
+            btnAñadir.UseVisualStyleBackColor = false;
+            btnAñadir.Click += btnAñadir_Click_1;
             // 
             // txtSimbolo
             // 
@@ -208,7 +208,7 @@
             Controls.Add(lblMasaAtomica);
             Controls.Add(lblSimbolo);
             Controls.Add(lblNAtomico);
-            Controls.Add(btnAñadirLaboratorio);
+            Controls.Add(btnAñadir);
             Controls.Add(lblCorreoElectronico);
             Name = "FrmElemento";
             Text = "FrmElemento";
@@ -233,6 +233,6 @@
         protected Label label5;
         protected TextBox txtPeriodo;
         protected TextBox txtMAtomica;
-        public Button btnAñadirLaboratorio;
+        public Button btnAñadir;
     }
 }

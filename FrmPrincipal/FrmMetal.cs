@@ -20,7 +20,7 @@ namespace Frm
         private int cantidadRadioactividad;
         private string color;
 
-        bool boolRadioactividad = false;
+        bool boolRadioactividad, boolColor = false;
 
         public Elemento MiElemento { get { return this.miElemento; } }
         public ECategoriasMetales Subcategoria { get { return this.subcategoria; } }
@@ -28,6 +28,7 @@ namespace Frm
         public string Color { get { return this.color; } }
         public bool BoolRadioactividad { get { return this.boolRadioactividad; } }
 
+        public bool BoolColor { get { return this.boolColor; } }
 
         public FrmMetal()
         {
@@ -44,18 +45,29 @@ namespace Frm
 
         }
 
-        private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
+        protected override bool ObtenerValidaciones()
+        {
+            if (base.ObtenerValidaciones() && boolRadioactividad && boolColor)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+
+        private void btnAñadir_Click_1(object sender, EventArgs e)
         {
 
-            if (int.TryParse(txtRadioactividad.Text, out this.cantidadRadioactividad)) { boolRadioactividad = true; }
-            else { MessageBox.Show("Ingrese un numero valido en la radioactividad"); }
+            
 
+            boolRadioactividad = TryParseCambiarBandera(txtRadioactividad.Text, out this.cantidadRadioactividad, "Radioactividad");
 
+            if (ValidarString(txtColor.Text, "Por favor ingresar un color valido.")) { this.color = txtColor.Text; boolColor = true; }
 
-            this.color = txtColor.Text; 
             this.subcategoria = (ECategoriasMetales)this.cboSubcategoria.SelectedItem;
 
-            if (base.BoolNAtomico && base.BoolGrupo && base.BoolPeriodo && base.BoolMasaAtomica && this.BoolRadioactividad)
+            if (ObtenerValidaciones())
             {
                 try
                 {
@@ -71,5 +83,13 @@ namespace Frm
                 }
             }
         }
+
+        
+
+
+
+
+
+
     }
 }

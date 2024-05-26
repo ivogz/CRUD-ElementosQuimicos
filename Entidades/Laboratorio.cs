@@ -108,6 +108,19 @@ namespace Entidades
             return sb.ToString();
         }
 
+        public string VerElementos()
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+            foreach (Elemento e in this.Elementos)
+            {
+                sb.AppendLine(e.ToString());
+            }
+
+            return sb.ToString();
+
+        }
+
         public static bool operator ==(Elemento e, Laboratorio l)
         {
             foreach (Elemento elemento in l.Elementos)

@@ -13,19 +13,13 @@ namespace Frm
 {
     public partial class FrmElemento : Form
     {
-        private int nAtomico;
-        private int grupo;
-        private int periodo;
+        private int nAtomico, grupo, periodo;
         private double masaAtomica;
-        private string simbolo;
-        private string nombre;
+        private string simbolo, nombre;
 
-        private bool boolNAtomico = false;
-        private bool boolGrupo = false;
-        private bool boolPeriodo = false;
-        private bool boolMasaAtomica = false;
+        private bool boolNAtomico, boolGrupo, boolPeriodo, boolMasaAtomica, boolSimbolo, boolNombre = false;
 
-        public int NAtomico { get { return this.nAtomico; }}
+        public int NAtomico { get { return this.nAtomico; } }
         public int Grupo { get { return this.grupo; } }
         public int Periodo { get { return this.periodo; } }
         public double MasaAtomica { get { return this.masaAtomica; } }
@@ -43,21 +37,69 @@ namespace Frm
             InitializeComponent();
         }
 
-        private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
+        private void btnAñadir_Click_1(object sender, EventArgs e)
         {
 
-            if (int.TryParse(txtNAtomico.Text, out this.nAtomico)) { this.boolNAtomico = true; }
-            else { MessageBox.Show("Ingrese un numero valido en NºAtomico"); }
-
-            if (int.TryParse(txtGrupo.Text, out this.grupo)) { this.boolGrupo = true; }
-            else { MessageBox.Show("Ingrese un numero valido en el grupo"); }
-
-            if (int.TryParse(txtPeriodo.Text, out this.periodo)) { this.boolPeriodo = true; }
-            else { MessageBox.Show("Ingrese un numero valido en el periodo"); }
-
-            if (double.TryParse(txtMAtomica.Text, out this.masaAtomica)) { this.boolMasaAtomica = true; }
-            else { MessageBox.Show("Ingrese un numero valido en la masa atomica"); }
+            this.boolNAtomico = TryParseCambiarBandera(txtNAtomico.Text, out this.nAtomico, "Numero Atomico");
+            this.boolGrupo = TryParseCambiarBandera(txtGrupo.Text, out this.grupo, "Grupo");
+            this.boolPeriodo = TryParseCambiarBandera(txtPeriodo.Text, out this.periodo, "Periodo");
+            this.boolMasaAtomica = TryParseCambiarBandera(txtMAtomica.Text, out this.masaAtomica, "Masa Atomica");
+            if (ValidarString(txtSimbolo.Text, "Por favor ingrese un simbolo valido."))
+            {
+                if (txtSimbolo.Text.Length <= 2) { this.simbolo = txtSimbolo.Text; boolSimbolo = true; }
+                else { MessageBox.Show("Por favor ingrese un simbolo de maximo 2 caracteres."); }
+            }
+            if (ValidarString(txtNombre.Text, "Por favor ingrese un nombre valido.")) { this.nombre = txtNombre.Text; boolNombre = true; }
 
         }
+
+        protected virtual bool ObtenerValidaciones()
+        {
+            if (this.BoolNAtomico && this.boolGrupo && this.boolPeriodo && this.boolMasaAtomica && this.boolNombre && this.boolSimbolo)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        protected bool ValidarString(string str, string messageBox)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(messageBox);
+                return false;
+            }
+        }
+
+        protected bool TryParseCambiarBandera(string str, out double value, string strMessageBox)
+        {
+            if (double.TryParse(str, out value))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show($"Por favor ingrese un numero valido en: {strMessageBox}");
+                return false;
+            }
+        }
+
+        protected bool TryParseCambiarBandera(string str, out int value, string strMessageBox)
+        {
+            if (int.TryParse(str, out value))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show($"Ingrese un numero valido: {strMessageBox}");
+                return false;
+            }
+        }
+
     }
 }
