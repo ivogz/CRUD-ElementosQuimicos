@@ -107,6 +107,7 @@
             btnAñadir.TabIndex = 3;
             btnAñadir.Text = "Añadir";
             btnAñadir.UseVisualStyleBackColor = false;
+            btnAñadir.Click += btnAñadir_Click;
             // 
             // btnModificar
             // 
@@ -140,6 +141,7 @@
             lstVisor.Size = new Size(708, 316);
             lstVisor.TabIndex = 6;
             lstVisor.UseCompatibleStateImageBehavior = false;
+            lstVisor.SelectedIndexChanged += lstVisor_SelectedIndexChanged;
             // 
             // groupBox1
             // 
