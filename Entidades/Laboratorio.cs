@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -138,7 +139,7 @@ namespace Entidades
 
         public static Laboratorio operator +(Laboratorio l, Elemento e)
         {
-            if (e != l)
+            if (e != l && l.Elementos.Count < l.CantMaxElementos)
             {
                 l.Elementos.Add(e);
             }

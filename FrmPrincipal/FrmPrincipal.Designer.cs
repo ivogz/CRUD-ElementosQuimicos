@@ -63,7 +63,6 @@
             rbtMetal.TabStop = true;
             rbtMetal.Text = "Metal";
             rbtMetal.UseVisualStyleBackColor = true;
-            rbtMetal.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // rbtNoMetal
             // 
@@ -73,7 +72,6 @@
             rbtNoMetal.TabIndex = 1;
             rbtNoMetal.Text = "No Metal";
             rbtNoMetal.UseVisualStyleBackColor = false;
-            rbtNoMetal.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // rbtGas
             // 
@@ -83,7 +81,6 @@
             rbtGas.TabIndex = 2;
             rbtGas.Text = "Gas";
             rbtGas.UseVisualStyleBackColor = true;
-            rbtGas.CheckedChanged += radioButton3_CheckedChanged;
             // 
             // grpElementos
             // 
@@ -170,6 +167,7 @@
             rbtNeutrones.TabIndex = 7;
             rbtNeutrones.Text = "Neutrones";
             rbtNeutrones.UseVisualStyleBackColor = true;
+            rbtNeutrones.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtPeriodo
             // 
@@ -180,6 +178,7 @@
             rbtPeriodo.TabIndex = 6;
             rbtPeriodo.Text = "Periodo";
             rbtPeriodo.UseVisualStyleBackColor = true;
+            rbtPeriodo.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtProtones
             // 
@@ -190,6 +189,7 @@
             rbtProtones.TabIndex = 3;
             rbtProtones.Text = "Protones";
             rbtProtones.UseVisualStyleBackColor = true;
+            rbtProtones.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtNombre
             // 
@@ -200,6 +200,7 @@
             rbtNombre.TabIndex = 5;
             rbtNombre.Text = "Nombre";
             rbtNombre.UseVisualStyleBackColor = true;
+            rbtNombre.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtSimbolo
             // 
@@ -210,6 +211,7 @@
             rbtSimbolo.TabIndex = 4;
             rbtSimbolo.Text = "Simbolo";
             rbtSimbolo.UseVisualStyleBackColor = true;
+            rbtSimbolo.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtMasaAtomica
             // 
@@ -220,6 +222,7 @@
             rbtMasaAtomica.TabIndex = 2;
             rbtMasaAtomica.Text = "Masa Atomica";
             rbtMasaAtomica.UseVisualStyleBackColor = true;
+            rbtMasaAtomica.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtNumeroAtomico
             // 
@@ -232,6 +235,7 @@
             rbtNumeroAtomico.TabStop = true;
             rbtNumeroAtomico.Text = "Nº Atomico";
             rbtNumeroAtomico.UseVisualStyleBackColor = true;
+            rbtNumeroAtomico.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtGrupo
             // 
@@ -242,6 +246,7 @@
             rbtGrupo.TabIndex = 1;
             rbtGrupo.Text = "Grupo";
             rbtGrupo.UseVisualStyleBackColor = true;
+            rbtGrupo.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtAscendente
             // 
@@ -254,7 +259,7 @@
             rbtAscendente.TabStop = true;
             rbtAscendente.Text = "Ascendente";
             rbtAscendente.UseVisualStyleBackColor = true;
-            rbtAscendente.CheckedChanged += rdoAscendente_CheckedChanged;
+            rbtAscendente.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // rbtDescendente
             // 
@@ -265,6 +270,7 @@
             rbtDescendente.TabIndex = 8;
             rbtDescendente.Text = "Descendente";
             rbtDescendente.UseVisualStyleBackColor = true;
+            rbtDescendente.CheckedChanged += OrdenarPorCheckedChanged;
             // 
             // btnAñadirLaboratorio
             // 

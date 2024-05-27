@@ -8,7 +8,6 @@ namespace Frm
 
         List<Laboratorio> laboratorios;
         private int lvIndex;
-        private Laboratorio labo;
 
 
         public FrmPrincipal()
@@ -25,19 +24,6 @@ namespace Frm
             this.laboratorios.Add(lab1);
             ActualizarVisor();
 
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
         }
 
         private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
@@ -108,43 +94,109 @@ namespace Frm
         private void btnAñadir_Click(object sender, EventArgs e)
         {
 
-            Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
-
-
             if (rbtMetal.Checked == true)
             {
                 FrmMetal frmMetal = new FrmMetal();
-                frmMetal.ShowDialog();
-                if (frmMetal.DialogResult == DialogResult.OK)
-                {
-                    MessageBox.Show(frmMetal.MiElemento.ToString());
-                    laboratorioSeleccionado += frmMetal.MiElemento;
-                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                }
+                AñadirElementoYActualizarVisor(frmMetal);
             }
             else if (rbtNoMetal.Checked == true)
             {
                 FrmNoMetal frmNoMetal = new FrmNoMetal();
-                frmNoMetal.ShowDialog();
-                if (frmNoMetal.DialogResult == DialogResult.OK)
-                {
-                    MessageBox.Show(frmNoMetal.MiElemento.ToString());
-                    laboratorioSeleccionado += frmNoMetal.MiElemento;
-                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                }
+                AñadirElementoYActualizarVisor(frmNoMetal);
             }
             else
             {
                 FrmGas frmGas = new FrmGas();
-                frmGas.ShowDialog();
-                if (frmGas.DialogResult == DialogResult.OK)
-                {
-                    MessageBox.Show(frmGas.MiElemento.ToString());
-                    laboratorios[this.lvIndex] += frmGas.MiElemento;
-                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                }
+                AñadirElementoYActualizarVisor(frmGas);
             }
 
         }
+
+        private void AñadirElementoYActualizarVisor(FrmElemento frm)
+        {
+
+            Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
+
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show(frm.MiElemento.ToString());
+                laboratorios[this.lvIndex] += frm.MiElemento;
+                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+            }
+
+
+        }
+
+
+        private void OrdenarPorCheckedChanged(object sender, EventArgs e)
+        {
+
+            RadioButton radioButton = (RadioButton)sender;
+
+            if (radioButton.Checked == true)
+            {
+
+                switch (radioButton.Name)
+                {
+                    case "rbtNumeroAtomico":
+                        MessageBox.Show("rbtNumeroAtomico seleccionado");
+
+
+                        break;
+                    case "rbtNombre":
+                        MessageBox.Show("rbtNombre seleccionado");
+                        break;
+                    case "rbtSimbolo":
+                        MessageBox.Show("rbtSimbolo seleccionado");
+                        break;
+                    case "rbtGrupo":
+                        MessageBox.Show("rbtGrupo seleccionado");
+                        break;
+                    case "rbtPeriodo":
+                        MessageBox.Show("rbtPeriodo seleccionado");
+                        break;
+                    case "rbtMasaAtomica":
+                        MessageBox.Show("rbtMasaAtomica seleccionado");
+                        break;
+                    case "rbtProtones":
+                        MessageBox.Show("rbtProtones seleccionado");
+                        break;
+                    case "rbtNeutrones":
+                        MessageBox.Show("rbtNeutrones seleccionado");
+                        break;
+                    case "rbtAscendente":
+                        MessageBox.Show("rbtNeutrones seleccionado");
+                        break;
+                    case "rbtDescendente":
+                        MessageBox.Show("rbtNeutrones seleccionado");
+                        break;
+                    default:
+                        MessageBox.Show("RadioButton no reconocido");
+                        break;
+                }
+            }
+        }
+
+
+
+        private void OrdenarPorAtributoAscDes(AtributosElemento atributo)
+        {
+
+            Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
+
+            if (rbtAscendente.Checked == true)
+            {
+                ActualizarVisorElementos(laboratorioSeleccionado.OrdenarPor(AtributosElemento.NumeroAtomico, laboratorioSeleccionado.Elementos, true));
+            }
+            else
+            {
+                ActualizarVisorElementos(laboratorioSeleccionado.OrdenarPor(AtributosElemento.NumeroAtomico, laboratorioSeleccionado.Elementos, false));
+            }
+
+        }
+
+
+
     }
 }

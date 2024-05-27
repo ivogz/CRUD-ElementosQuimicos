@@ -150,7 +150,7 @@ namespace Entidades
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-            sb.AppendLine(this.nAtomico.ToString());
+            sb.AppendLine($"Numero atomico: " + this.nAtomico.ToString());
             sb.AppendLine(this.nombre);
             sb.AppendLine(this.simbolo);
             sb.AppendLine(this.grupo.ToString());
