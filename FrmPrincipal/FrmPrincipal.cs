@@ -216,5 +216,62 @@ namespace Frm
             }
         }
 
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (lstVisorElementos.SelectedItems.Count == 1)
+            {
+
+                int indice = this.lstVisorElementos.SelectedIndices[0];
+
+                if (indice != -1)
+                {
+                    DialogResult confirm = MessageBox.Show("¿Estás seguro de que deseas eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (confirm == DialogResult.OK)
+                    {
+                        if (this.listaEnUso == null)
+                        {
+                            this.laboratorios[lvIndex].Elementos.RemoveAt(indice);
+                            this.ActualizarVisorElementos(this.laboratorios[lvIndex].Elementos);
+                        }
+                        else
+                        {
+                            this.laboratorios[lvIndex].Elementos.Remove(this.listaEnUso[indice]);
+                            this.ActualizarVisorElementos(this.laboratorios[lvIndex].Elementos);
+                        }
+                    }
+                }
+
+
+            }
+            else if (lstVisorLaboratorios.SelectedItems.Count == 1)
+            {
+                this.laboratorios.RemoveAt(lvIndex);
+                ActualizarVisor();
+                this.lstVisorElementos.Items.Clear();
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un elemento para eliminar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            int indice = this.lstVisorElementos.SelectedIndices[0];
+
+            if (indice != -1)
+            {
+
+                
+
+
+
+
+            }
+        }
     }
 }

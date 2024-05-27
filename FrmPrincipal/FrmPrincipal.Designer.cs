@@ -118,6 +118,7 @@
             btnModificar.TabIndex = 4;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // BtnEliminar
             // 
@@ -130,6 +131,7 @@
             BtnEliminar.TabIndex = 5;
             BtnEliminar.Text = "Eliminar";
             BtnEliminar.UseVisualStyleBackColor = false;
+            BtnEliminar.Click += BtnEliminar_Click;
             // 
             // lstVisorLaboratorios
             // 

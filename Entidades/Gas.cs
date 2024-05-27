@@ -65,10 +65,10 @@ namespace Entidades
         public override string ToString()
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.AppendLine(base.ToString());
-            sb.AppendLine(this.subcategoria.ToString());
-            sb.AppendLine(this.lugarDeObtencion);
-            sb.AppendLine(this.usoPrincipal);
+            sb.Append(base.ToString());
+            sb.AppendLine("Subcategoria: " + this.subcategoria.ToString());
+            sb.AppendLine("Lugar de obtencion: "+this.lugarDeObtencion);
+            sb.AppendLine("Uso principal: "+this.usoPrincipal);
 
             return sb.ToString();
 

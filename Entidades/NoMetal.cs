@@ -73,11 +73,11 @@ namespace Entidades
         public override string ToString()
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.AppendLine(base.ToString());
-            sb.AppendLine(this.subcategoria.ToString());
-            sb.AppendLine(this.estadoNatural.ToString());
-            sb.AppendLine(this.puntoEbullicion.ToString());
-            sb.AppendLine(this.puntoFusion.ToString());
+            sb.Append(base.ToString());
+            sb.AppendLine("Subcategoria: "+this.subcategoria.ToString());
+            sb.AppendLine("Estado natural: "+this.estadoNatural.ToString());
+            sb.AppendLine("Punto de ebullicion: "+this.puntoEbullicion.ToString());
+            sb.AppendLine("Punto de fusion: "+this.puntoFusion.ToString());
 
             return sb.ToString();
 

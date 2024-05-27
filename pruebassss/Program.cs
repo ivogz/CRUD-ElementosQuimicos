@@ -5,8 +5,6 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        string rutaRaizProyecto = AppDomain.CurrentDomain.BaseDirectory;
-
         Laboratorio labo = new Laboratorio("Laboratorio facultad", "Avellaneda", ETamaños.Mediano);
 
         Metal gz = new Metal(17, "Gonzalez", "Gz", 9, 11, ECategoriasMetales.MetalPostransicional, 230.450, 9000, "rojo");
@@ -26,6 +24,12 @@ internal class Program
         Console.WriteLine(labo.ToString());
 
         labo.Elementos = labo.OrdenarPor(AtributosElemento.NumeroAtomico, labo.Elementos, true);
+
+        Console.WriteLine("---------------------------------------------------");
+
+        Console.WriteLine(labo.ToString());
+
+        labo.Elementos.Remove(gz);
 
         Console.WriteLine("---------------------------------------------------");
 

@@ -150,12 +150,14 @@ namespace Entidades
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-            sb.AppendLine($"Numero atomico: " + this.nAtomico.ToString());
-            sb.AppendLine(this.nombre);
-            sb.AppendLine(this.simbolo);
-            sb.AppendLine(this.grupo.ToString());
-            sb.AppendLine(this.periodo.ToString());
-            sb.AppendLine(this.masaAtomica.ToString());
+            sb.AppendLine("Nombre: " +this.nombre);
+            sb.AppendLine("Simbolo: "+this.simbolo);
+            sb.AppendLine("Numero atomico: " + this.nAtomico.ToString());
+            sb.AppendLine("Grupo: "+this.grupo.ToString());
+            sb.AppendLine("Periodo: "+this.periodo.ToString());
+            sb.AppendLine("Masa Atomica: "+this.masaAtomica.ToString());
+            sb.AppendLine("Protones: " + this.protones.ToString());
+            sb.AppendLine("Neutrones: " + this.neutrones.ToString());
             return sb.ToString();
         }
 

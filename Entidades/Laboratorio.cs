@@ -95,10 +95,10 @@ namespace Entidades
         {
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.AppendLine(this.Nombre);
-            sb.AppendLine(this.Ubicacion);
-            sb.AppendLine(this.Tamaño.ToString());
-            sb.AppendLine(this.CantMaxElementos.ToString());
+            sb.AppendLine("Nombre: " +this.Nombre);
+            sb.AppendLine("Ubicacion: " + this.Ubicacion);
+            sb.AppendLine("Tamaño: "+this.Tamaño.ToString());
+            sb.AppendLine("Maximo de elementos: "+this.CantMaxElementos.ToString());
             sb.AppendLine();
 
             foreach (Elemento e in this.Elementos)
