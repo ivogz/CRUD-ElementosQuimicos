@@ -1,4 +1,5 @@
 using Entidades;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Frm
 {
@@ -6,6 +7,8 @@ namespace Frm
     {
 
         List<Laboratorio> laboratorios;
+        private int lvIndex;
+        private Laboratorio labo;
 
 
         public FrmPrincipal()
@@ -61,6 +64,20 @@ namespace Frm
 
         }
 
+        private void ActualizarVisorElementos(List<Elemento> listaElementos)
+        {
+
+            this.lstVisorElementos.Items.Clear();
+
+            foreach (Elemento e in listaElementos)
+            {
+                this.lstVisorElementos.Items.Add(e.ToString());
+            }
+
+
+
+        }
+
         private void rdoAscendente_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -68,11 +85,31 @@ namespace Frm
 
         private void lstVisor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ListView listView = sender as ListView;
 
+
+            if (listView.SelectedItems.Count > 0)
+            {
+
+                this.lvIndex = listView.SelectedItems[0].Index;
+
+                // Verificar si hay un ítem seleccionado
+                if (this.lvIndex >= 0 && lvIndex < laboratorios.Count)
+                {
+
+                    Laboratorio labo = laboratorios[lvIndex];
+
+                    ActualizarVisorElementos(labo.Elementos);
+
+                }
+            }
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
+
+            Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
+
 
             if (rbtMetal.Checked == true)
             {
@@ -81,6 +118,8 @@ namespace Frm
                 if (frmMetal.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show(frmMetal.MiElemento.ToString());
+                    laboratorioSeleccionado += frmMetal.MiElemento;
+                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
                 }
             }
             else if (rbtNoMetal.Checked == true)
@@ -90,6 +129,8 @@ namespace Frm
                 if (frmNoMetal.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show(frmNoMetal.MiElemento.ToString());
+                    laboratorioSeleccionado += frmNoMetal.MiElemento;
+                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
                 }
             }
             else
@@ -99,8 +140,11 @@ namespace Frm
                 if (frmGas.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show(frmGas.MiElemento.ToString());
+                    laboratorios[this.lvIndex] += frmGas.MiElemento;
+                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
                 }
             }
+
         }
     }
 }
