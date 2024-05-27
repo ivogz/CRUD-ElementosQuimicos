@@ -8,6 +8,7 @@ namespace Frm
 
         List<Laboratorio> laboratorios;
         private int lvIndex;
+        private List<Elemento> listaEnUso;
 
 
         public FrmPrincipal()
@@ -141,62 +142,79 @@ namespace Frm
                 {
                     case "rbtNumeroAtomico":
                         MessageBox.Show("rbtNumeroAtomico seleccionado");
-
+                        OrdenarPorAtributoAscDes(AtributosElemento.NumeroAtomico);
 
                         break;
                     case "rbtNombre":
                         MessageBox.Show("rbtNombre seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.Nombre);
                         break;
                     case "rbtSimbolo":
                         MessageBox.Show("rbtSimbolo seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.Simbolo);
                         break;
                     case "rbtGrupo":
                         MessageBox.Show("rbtGrupo seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.Grupo);
                         break;
                     case "rbtPeriodo":
                         MessageBox.Show("rbtPeriodo seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.Periodo);
                         break;
                     case "rbtMasaAtomica":
                         MessageBox.Show("rbtMasaAtomica seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.MasaAtomica);
                         break;
                     case "rbtProtones":
                         MessageBox.Show("rbtProtones seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.Protones);
                         break;
                     case "rbtNeutrones":
                         MessageBox.Show("rbtNeutrones seleccionado");
+                        OrdenarPorAtributoAscDes(AtributosElemento.Neutrones);
                         break;
                     case "rbtAscendente":
-                        MessageBox.Show("rbtNeutrones seleccionado");
+                        darVueltaListaYActualizar();
                         break;
                     case "rbtDescendente":
-                        MessageBox.Show("rbtNeutrones seleccionado");
+                        darVueltaListaYActualizar();
                         break;
                     default:
                         MessageBox.Show("RadioButton no reconocido");
+                        OrdenarPorAtributoAscDes(AtributosElemento.NumeroAtomico);
                         break;
                 }
             }
         }
 
+        private void darVueltaListaYActualizar()
+        {
 
+            if (this.listaEnUso != null && this.listaEnUso.Count > 0)
+            {
+                this.listaEnUso.Reverse();
+                ActualizarVisorElementos(this.listaEnUso);
+
+            }
+
+
+        }
 
         private void OrdenarPorAtributoAscDes(AtributosElemento atributo)
         {
-
             Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
 
             if (rbtAscendente.Checked == true)
             {
-                ActualizarVisorElementos(laboratorioSeleccionado.OrdenarPor(AtributosElemento.NumeroAtomico, laboratorioSeleccionado.Elementos, true));
+                this.listaEnUso = laboratorioSeleccionado.OrdenarPor(atributo, laboratorioSeleccionado.Elementos, true);
+                ActualizarVisorElementos(this.listaEnUso);
             }
             else
             {
-                ActualizarVisorElementos(laboratorioSeleccionado.OrdenarPor(AtributosElemento.NumeroAtomico, laboratorioSeleccionado.Elementos, false));
+                this.listaEnUso = laboratorioSeleccionado.OrdenarPor(atributo, laboratorioSeleccionado.Elementos, false);
+                ActualizarVisorElementos(this.listaEnUso);
             }
-
         }
-
-
 
     }
 }
