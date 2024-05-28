@@ -31,14 +31,38 @@ namespace Frm
         {
             InitializeComponent();
 
-            //AGREGAR OPCIONES A COMBO BOX YY PONER UNA PREDETERMINADA 
+            añadirOpcionesAComboBox();
+
+            this.cboSubcategoria.SelectedIndex = 0;
+
+        }
+
+        public FrmGas(Gas gas) : base(gas)
+        {
+            InitializeComponent();
+
+            añadirOpcionesAComboBox();
+
+            // Buscar el índice del valor de gas.Subcategoria y seleccionarlo
+            int subcategoriaIndex = this.cboSubcategoria.FindStringExact(gas.Subcategoria.ToString());
+            if (subcategoriaIndex != -1)
+            {
+                this.cboSubcategoria.SelectedIndex = subcategoriaIndex;
+            }
+
+            this.txtLugarDeObtencion.Text = gas.LugarDeObtencion;
+            this.txtUsoPrincipal.Text = gas.UsoPrincipal;
+
+
+
+        }
+
+        private void añadirOpcionesAComboBox() 
+        {
             foreach (ECategoriasGases g in Enum.GetValues(typeof(ECategoriasGases)))
             {
                 this.cboSubcategoria.Items.Add(g);
             }
-            this.cboSubcategoria.SelectedIndex = 0;
-
-
 
 
         }

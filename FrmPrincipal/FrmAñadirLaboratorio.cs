@@ -34,6 +34,20 @@ namespace Frm
 
         }
 
+        public FrmAñadirLaboratorio(Laboratorio lab) : this()
+        {
+            txtNombre.Text = lab.Nombre;
+            txtUbicacion.Text = lab.Ubicacion;
+
+            int TamañoIndex = this.cboTamaño.FindStringExact(lab.Tamaño.ToString());
+            if (TamañoIndex != -1)
+            {
+                this.cboTamaño.SelectedIndex = TamañoIndex;
+            }
+
+            this.cboTamaño.Enabled = false;
+        }
+
         private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;

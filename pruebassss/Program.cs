@@ -33,7 +33,10 @@ internal class Program
 
         Console.WriteLine("---------------------------------------------------");
 
-        Console.WriteLine(labo.ToString());
+
+        Console.WriteLine(gasoi.Subcategoria);
+
+
 
 
     }

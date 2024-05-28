@@ -14,15 +14,25 @@ namespace Entidades
         protected double puntoFusion;
 
 
-        public ECategoriasNoMetales Categoria
+        public ECategoriasNoMetales Subcategoria
         {
-            get { return subcategoria; }
-            set { subcategoria = value; }
+            get { return this.subcategoria; }
+            set { this.subcategoria = value; }
         }
         public EEstados EstadoNatural
         {
-            get { return estadoNatural; }
-            set { estadoNatural = value; }
+            get { return this.estadoNatural; }
+            set { this.estadoNatural = value; }
+        }
+        public double PuntoEbullicion
+        {
+            get { return this.puntoEbullicion; }
+            set { this.puntoEbullicion = value; }
+        }
+        public double PuntoFusion
+        {
+            get { return this.puntoFusion; }
+            set { this.puntoFusion = value; }
         }
 
         public NoMetal(int nAtomico, string nombre, string simbolo) : base(nAtomico, nombre, simbolo)

@@ -261,16 +261,62 @@ namespace Frm
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int indice = this.lstVisorElementos.SelectedIndices[0];
+            Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
 
-            if (indice != -1)
+            if (lstVisorElementos.SelectedItems.Count == 1)
             {
+                int indice = this.lstVisorElementos.SelectedIndices[0];
 
-                
+                if (indice != -1)
+                {
+                    if (laboratorioSeleccionado.Elementos[indice] is Gas gas)
+                    {
+                        FrmGas frmGas = new(gas);
+                        frmGas.ShowDialog();
 
+                        if (frmGas.DialogResult == DialogResult.OK)
+                        {
+                            laboratorioSeleccionado.Elementos[indice] = frmGas.MiElemento;
+                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                        }
+                    }
+                    else if (laboratorioSeleccionado.Elementos[indice] is NoMetal nm)
+                    {
+                        FrmNoMetal frmNoMetal = new(nm);
+                        frmNoMetal.ShowDialog();
 
+                        if (frmNoMetal.DialogResult == DialogResult.OK)
+                        {
+                            laboratorioSeleccionado.Elementos[indice] = frmNoMetal.MiElemento;
+                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                        }
+                    }
+                    else if (laboratorioSeleccionado.Elementos[indice] is Metal metal)
+                    {
+                        FrmMetal frmMetal = new(metal);
+                        frmMetal.ShowDialog();
+                        if (frmMetal.DialogResult == DialogResult.OK)
+                        {
+                            laboratorioSeleccionado.Elementos[indice] = frmMetal.MiElemento;
+                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                        }
+                    }
+                }
+            }
+            else if (lstVisorLaboratorios.SelectedItems.Count == 1)
+            {
+                FrmAñadirLaboratorio frmLabo = new(laboratorioSeleccionado);
+                frmLabo.ShowDialog();
 
-
+                if (frmLabo.DialogResult == DialogResult.OK)
+                {
+                    this.laboratorios[lvIndex] = frmLabo.MiLaboratorio;
+                    ActualizarVisor();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

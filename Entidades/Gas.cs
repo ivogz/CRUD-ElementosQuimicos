@@ -13,10 +13,22 @@ namespace Entidades
         protected string lugarDeObtencion;
         protected string usoPrincipal;
 
-        public ECategoriasGases Categoria
+        public string LugarDeObtencion
         {
-            get { return subcategoria; }
-            set { subcategoria = value; }
+            get { return this.lugarDeObtencion; }
+            set { this.lugarDeObtencion = value; }
+        }
+
+        public string UsoPrincipal
+        {
+            get { return this.usoPrincipal; }
+            set { this.usoPrincipal = value; }
+        }
+
+        public ECategoriasGases Subcategoria
+        {
+            get { return this.subcategoria; }
+            set { this.subcategoria = value; }
         }
 
         public Gas(int nAtomico, string nombre, string simbolo) : base(nAtomico, nombre, simbolo)

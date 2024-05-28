@@ -31,13 +31,41 @@ namespace Frm
         {
             InitializeComponent();
 
+            añadirOpcionesAComboBox(); 
 
-            //AGREGAR OPCIONES A COMBO BOX YY PONER UNA PREDETERMINADA 
+            this.cboSubcategoria.SelectedIndex = 0;
+
+
+        }
+
+        public FrmMetal(Metal metal) : base(metal)
+        {
+            InitializeComponent();
+
+            añadirOpcionesAComboBox();
+
+            int subcategoriaIndex = this.cboSubcategoria.FindStringExact(metal.Subcategoria.ToString());
+            if (subcategoriaIndex != -1)
+            {
+                this.cboSubcategoria.SelectedIndex = subcategoriaIndex;
+            }
+
+            txtRadioactividad.Text = metal.CantidadRadioactividad.ToString();
+            txtColor.Text = metal.Color;
+
+
+
+
+        }
+
+
+
+        private void añadirOpcionesAComboBox()
+        {
             foreach (ECategoriasMetales m in Enum.GetValues(typeof(ECategoriasMetales)))
             {
                 this.cboSubcategoria.Items.Add(m);
             }
-            this.cboSubcategoria.SelectedIndex = 0;
 
 
         }

@@ -12,6 +12,25 @@ namespace Entidades
         protected int cantidadRadioactividad;
         protected string color;
 
+        public ECategoriasMetales Subcategoria
+        {
+            get { return this.subcategoria; }
+            set { this.subcategoria = value; }
+        }
+
+        public int CantidadRadioactividad
+        {
+            get { return this.cantidadRadioactividad; }
+            set { this.cantidadRadioactividad = value; }
+        }
+
+        public string Color
+        {
+            get { return this.color; }
+            set { this.color = value; }
+        }
+
+
         public ECategoriasMetales Categoria
         {
             get { return subcategoria; }

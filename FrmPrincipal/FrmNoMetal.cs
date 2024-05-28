@@ -31,19 +31,51 @@ namespace Frm
         {
             InitializeComponent();
 
-            //AGREGAR OPCIONES A COMBO BOX YY PONER UNA PREDETERMINADA 
+            añadirOpcionesAComboBox();
+
+            this.cboSubcategoria.SelectedIndex = 0;
+
+            this.cboEstadoNatural.SelectedIndex = 0;
+
+        }
+
+        public FrmNoMetal (NoMetal nm) : base(nm)
+        {
+            InitializeComponent();
+
+            añadirOpcionesAComboBox();
+
+
+            int subcategoriaIndex = this.cboSubcategoria.FindStringExact(nm.Subcategoria.ToString());
+            if (subcategoriaIndex != -1)
+            {
+                this.cboSubcategoria.SelectedIndex = subcategoriaIndex;
+            }
+
+            int estadoNaturalIndex = this.cboEstadoNatural.FindStringExact(nm.EstadoNatural.ToString());
+            if (estadoNaturalIndex != -1)
+            {
+                this.cboEstadoNatural.SelectedIndex = estadoNaturalIndex;
+            }
+
+            txtPuntoDeEbullicion.Text = nm.PuntoEbullicion.ToString();
+            txtPuntoDeFusion.Text = nm.PuntoFusion.ToString();
+
+        }
+
+
+
+        private void añadirOpcionesAComboBox()
+        {
             foreach (ECategoriasNoMetales nm in Enum.GetValues(typeof(ECategoriasNoMetales)))
             {
                 this.cboSubcategoria.Items.Add(nm);
             }
-            this.cboSubcategoria.SelectedIndex = 0;
 
             foreach (EEstados e in Enum.GetValues(typeof(EEstados)))
             {
                 this.cboEstadoNatural.Items.Add(e);
             }
-            this.cboEstadoNatural.SelectedIndex = 0;
-
 
         }
 

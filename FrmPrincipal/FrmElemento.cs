@@ -41,6 +41,19 @@ namespace Frm
             InitializeComponent();
         }
 
+        public FrmElemento(Elemento elemento): this()
+        {
+            this.MiElemento = elemento;
+            this.txtNAtomico.Text = elemento.NAtomico.ToString();
+            this.txtNombre.Text = elemento.Nombre;
+            this.txtSimbolo.Text = elemento.Simbolo;
+            this.txtGrupo.Text = elemento.Grupo.ToString();
+            this.txtPeriodo.Text = elemento.Periodo.ToString();
+            this.txtMAtomica.Text = elemento.MasaAtomica.ToString();
+
+            this.txtNAtomico.Enabled = false;
+        }
+
         private void btnAñadir_Click_1(object sender, EventArgs e)
         {
 
