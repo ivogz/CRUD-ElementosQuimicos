@@ -31,6 +31,8 @@ namespace Entidades
             set { this.subcategoria = value; }
         }
 
+        public Gas() { }
+
         public Gas(int nAtomico, string nombre, string simbolo) : base(nAtomico, nombre, simbolo)
         {
             this.subcategoria = ECategoriasGases.GasNoble;

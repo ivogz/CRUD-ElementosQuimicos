@@ -35,6 +35,8 @@ namespace Entidades
             set { this.puntoFusion = value; }
         }
 
+        public NoMetal() { }
+
         public NoMetal(int nAtomico, string nombre, string simbolo) : base(nAtomico, nombre, simbolo)
         {
             this.subcategoria = ECategoriasNoMetales.NoMetalReactivo;

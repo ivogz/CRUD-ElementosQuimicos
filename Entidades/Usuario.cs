@@ -104,6 +104,20 @@ namespace Entidades
                 this.perfil = value;
             }
         }
+
+        public string MostrarInfo()
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+            sb.Append($"Apellido: {this.apellido} || ");
+            sb.Append($"Nombre: {this.nombre} || ");
+            sb.Append($"Legajo: {this.legajo.ToString()} || ");
+            sb.Append($"Correo: {this.correo} || ");
+            sb.Append($"Clave: {this.clave} || ");
+            sb.Append($"Perfil: {this.perfil} || ");
+
+            return sb.ToString();
+        }
     }
 }
 

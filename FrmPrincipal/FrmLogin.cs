@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Frm
 {
@@ -28,22 +29,39 @@ namespace Frm
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             bool loginExitoso = false;
+            Usuario usuarioExitoso = null;
 
             foreach (Usuario u in Usuarios)
             {
                 if (u.Correo == this.txtCorreo.Text && u.Clave == this.txtContraseña.Text)
                 {
                     loginExitoso = true;
+                    usuarioExitoso = u;
+                    break;
                 }
             }
 
             if (loginExitoso)
             {
+                string logData = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {usuarioExitoso.MostrarInfo()}";
+
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter("./usuarios.log", true))
+                    {
+                        writer.WriteLine(logData);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al escribir en el archivo de registro: {ex.Message}");
+                }
+
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
+
             else { MessageBox.Show("Error, ingrese datos correctos"); }
-
-
 
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
@@ -40,6 +41,32 @@ namespace Entidades
 
             return listAux;
         }
+
+        public void SerializacionXML(List<Laboratorio> listaLaboratorios)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Laboratorio>));
+
+            using (StreamWriter writer = new StreamWriter(this.path))
+            {
+                serializer.Serialize(writer, listaLaboratorios);
+            }
+        }
+
+        public List<Laboratorio> DeserializarXML()
+        {
+            List<Laboratorio> listaLaboratorios = null;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Laboratorio>));
+
+            using (StreamReader reader = new StreamReader(this.path))
+            {
+                listaLaboratorios = (List<Laboratorio>)serializer.Deserialize(reader);
+            }
+
+            return listaLaboratorios;
+        }
+
+
+
 
 
 

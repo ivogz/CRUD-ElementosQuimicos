@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
@@ -13,7 +14,14 @@ namespace Entidades
         public string Ubicacion { get; set; }
         public ETamaños Tamaño { get; set; }
         public int CantMaxElementos { get; set; }
+
+        [XmlArray("Elementos")]
+        [XmlArrayItem("Elemento")]
         public List<Elemento> Elementos { get; set; }
+
+
+
+        public Laboratorio() { }
 
         public Laboratorio(string nombre, string ubicacion, ETamaños tamaño)
         {

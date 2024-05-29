@@ -37,6 +37,8 @@ namespace Entidades
             set { this.subcategoria = value; }
         }
 
+        public Metal() { }
+
         public Metal(int nAtomico, string nombre, string simbolo, ECategoriasMetales subcategoria) : base(nAtomico, nombre, simbolo)
         {
             this.subcategoria=subcategoria;

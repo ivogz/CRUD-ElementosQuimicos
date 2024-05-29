@@ -1,7 +1,12 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+
+    [XmlInclude(typeof(Metal))]
+    [XmlInclude(typeof(NoMetal))]
+    [XmlInclude(typeof(Gas))]
     public abstract class Elemento
     {
         //ATRIBUTOS
@@ -67,6 +72,7 @@ namespace Entidades
 
         //PROPIEDADES
 
+        public Elemento() { }
 
         public Elemento(int nAtomico, string nombre, string simbolo)
         {

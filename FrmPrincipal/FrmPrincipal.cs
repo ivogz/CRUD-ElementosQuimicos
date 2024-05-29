@@ -22,7 +22,6 @@ namespace Frm
 
             Laboratorio lab1 = new Laboratorio("labo facu", "avella", ETamaños.Grande);
 
-            this.laboratorios.Add(lab1);
             ActualizarVisor();
 
         }
@@ -62,11 +61,6 @@ namespace Frm
             }
 
 
-
-        }
-
-        private void rdoAscendente_CheckedChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -318,6 +312,69 @@ namespace Frm
             {
                 MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void toolStripBtnSerializar_Click(object sender, EventArgs e)
+        {
+
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save an XML File";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedPath = saveFileDialog.FileName;
+
+                    Serializacion srlz = new Serializacion(selectedPath);
+
+                    srlz.SerializacionXML(this.laboratorios);
+                }
+
+            }
+
+
+
+        }
+
+        private void toolStripBtnDeserializar_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+                openFileDialog.Title = "Open an XML File";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedPath = openFileDialog.FileName;
+
+                    try
+                    {
+                        Serializacion srlz = new Serializacion(selectedPath);
+                        List<Laboratorio> laboratoriosDeserializados = srlz.DeserializarXML();
+
+                        if (laboratoriosDeserializados != null)
+                        {
+                            this.laboratorios = laboratoriosDeserializados;
+                            ActualizarVisor();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El archivo XML no contiene datos válidos.", "Error de deserialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ocurrió un error al deserializar el archivo: {ex.Message}", "Error de deserialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void toolStripBtnRegistros_Click(object sender, EventArgs e)
+        {
+            FrmUsuariosLog frmRegistros = new FrmUsuariosLog();
+            frmRegistros.ShowDialog();
         }
     }
 }

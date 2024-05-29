@@ -37,7 +37,7 @@ internal class Program
         Console.WriteLine(gasoi.Subcategoria);
 
 
-
+        
 
     }
 }
