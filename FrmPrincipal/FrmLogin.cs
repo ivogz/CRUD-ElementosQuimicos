@@ -14,7 +14,8 @@ namespace Frm
 {
     public partial class FrmLogin : Form
     {
-        List<Usuario> Usuarios = new List<Usuario>();
+        private List<Usuario> Usuarios = new List<Usuario>();
+        public Usuario usuarioExitoso;
 
         public FrmLogin()
         {
@@ -29,21 +30,20 @@ namespace Frm
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             bool loginExitoso = false;
-            Usuario usuarioExitoso = null;
 
             foreach (Usuario u in Usuarios)
             {
                 if (u.Correo == this.txtCorreo.Text && u.Clave == this.txtContraseña.Text)
                 {
                     loginExitoso = true;
-                    usuarioExitoso = u;
+                    this.usuarioExitoso = u;
                     break;
                 }
             }
 
             if (loginExitoso)
             {
-                string logData = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {usuarioExitoso.MostrarInfo()}";
+                string logData = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {this.usuarioExitoso.MostrarInfo()}";
 
                 try
                 {

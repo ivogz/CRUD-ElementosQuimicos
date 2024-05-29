@@ -51,21 +51,28 @@
             btnAñadirLaboratorio = new Button();
             lstVisorElementos = new ListView();
             toolStrip1 = new ToolStrip();
-            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator6 = new ToolStripSeparator();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripBtnSerializar = new ToolStripButton();
             toolStripSeparator4 = new ToolStripSeparator();
             toolStripBtnDeserializar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripSeparator5 = new ToolStripSeparator();
+            toolStripBtnRegistros = new ToolStripButton();
+            toolStripSeparator7 = new ToolStripSeparator();
+            toolStripSeparator1 = new ToolStripSeparator();
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
-            toolStripBtnRegistros = new ToolStripButton();
-            toolStripSeparator6 = new ToolStripSeparator();
-            toolStripSeparator7 = new ToolStripSeparator();
+            toolStrip2 = new ToolStrip();
+            lblNombreUsuario = new ToolStripLabel();
+            toolStripSeparator10 = new ToolStripSeparator();
+            toolStripSeparator9 = new ToolStripSeparator();
+            lblFecha = new ToolStripLabel();
+            columnHeader1 = new ColumnHeader();
             grpElementos.SuspendLayout();
             grpbOrdenar.SuspendLayout();
             toolStrip1.SuspendLayout();
+            toolStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // rbtMetal
@@ -303,6 +310,7 @@
             // 
             // lstVisorElementos
             // 
+            lstVisorElementos.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             lstVisorElementos.Dock = DockStyle.Top;
             lstVisorElementos.Location = new Point(0, 71);
             lstVisorElementos.Name = "lstVisorElementos";
@@ -314,23 +322,23 @@
             // 
             toolStrip1.AutoSize = false;
             toolStrip1.Dock = DockStyle.None;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator1, toolStripSeparator3, toolStripBtnSerializar, toolStripSeparator4, toolStripBtnDeserializar, toolStripSeparator2, toolStripSeparator5, toolStripBtnRegistros, toolStripSeparator6, toolStripSeparator7 });
-            toolStrip1.Location = new Point(340, 511);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator6, toolStripSeparator3, toolStripBtnSerializar, toolStripSeparator4, toolStripBtnDeserializar, toolStripSeparator2, toolStripSeparator5, toolStripBtnRegistros, toolStripSeparator7, toolStripSeparator1 });
+            toolStrip1.Location = new Point(337, 504);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RenderMode = ToolStripRenderMode.System;
-            toolStrip1.Size = new Size(368, 21);
+            toolStrip1.Size = new Size(255, 28);
             toolStrip1.TabIndex = 11;
             toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
+            // toolStripSeparator6
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 21);
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(6, 28);
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 21);
+            toolStripSeparator3.Size = new Size(6, 28);
             // 
             // toolStripBtnSerializar
             // 
@@ -338,14 +346,14 @@
             toolStripBtnSerializar.Image = (Image)resources.GetObject("toolStripBtnSerializar.Image");
             toolStripBtnSerializar.ImageTransparentColor = Color.Magenta;
             toolStripBtnSerializar.Name = "toolStripBtnSerializar";
-            toolStripBtnSerializar.Size = new Size(57, 18);
+            toolStripBtnSerializar.Size = new Size(57, 25);
             toolStripBtnSerializar.Text = "Serializar";
             toolStripBtnSerializar.Click += toolStripBtnSerializar_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(6, 21);
+            toolStripSeparator4.Size = new Size(6, 28);
             // 
             // toolStripBtnDeserializar
             // 
@@ -353,23 +361,19 @@
             toolStripBtnDeserializar.Image = (Image)resources.GetObject("toolStripBtnDeserializar.Image");
             toolStripBtnDeserializar.ImageTransparentColor = Color.Magenta;
             toolStripBtnDeserializar.Name = "toolStripBtnDeserializar";
-            toolStripBtnDeserializar.Size = new Size(70, 18);
+            toolStripBtnDeserializar.Size = new Size(70, 25);
             toolStripBtnDeserializar.Text = "Deserializar";
             toolStripBtnDeserializar.Click += toolStripBtnDeserializar_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 21);
+            toolStripSeparator2.Size = new Size(6, 28);
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(6, 21);
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
+            toolStripSeparator5.Size = new Size(6, 28);
             // 
             // toolStripBtnRegistros
             // 
@@ -377,25 +381,64 @@
             toolStripBtnRegistros.Image = (Image)resources.GetObject("toolStripBtnRegistros.Image");
             toolStripBtnRegistros.ImageTransparentColor = Color.Magenta;
             toolStripBtnRegistros.Name = "toolStripBtnRegistros";
-            toolStripBtnRegistros.Size = new Size(59, 18);
+            toolStripBtnRegistros.Size = new Size(59, 25);
             toolStripBtnRegistros.Text = "Registros";
             toolStripBtnRegistros.Click += toolStripBtnRegistros_Click;
-            // 
-            // toolStripSeparator6
-            // 
-            toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new Size(6, 21);
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(6, 21);
+            toolStripSeparator7.Size = new Size(6, 28);
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 28);
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // toolStrip2
+            // 
+            toolStrip2.AutoSize = false;
+            toolStrip2.Dock = DockStyle.None;
+            toolStrip2.Items.AddRange(new ToolStripItem[] { lblNombreUsuario, toolStripSeparator10, toolStripSeparator9, lblFecha });
+            toolStrip2.Location = new Point(454, 396);
+            toolStrip2.Name = "toolStrip2";
+            toolStrip2.RenderMode = ToolStripRenderMode.System;
+            toolStrip2.Size = new Size(161, 29);
+            toolStrip2.TabIndex = 12;
+            toolStrip2.Text = "toolStrip2";
+            // 
+            // lblNombreUsuario
+            // 
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(51, 26);
+            lblNombreUsuario.Text = "Nombre";
+            // 
+            // toolStripSeparator10
+            // 
+            toolStripSeparator10.Name = "toolStripSeparator10";
+            toolStripSeparator10.Size = new Size(6, 29);
+            // 
+            // toolStripSeparator9
+            // 
+            toolStripSeparator9.Name = "toolStripSeparator9";
+            toolStripSeparator9.Size = new Size(6, 29);
+            // 
+            // lblFecha
+            // 
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(38, 26);
+            lblFecha.Text = "Fecha";
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(708, 532);
+            Controls.Add(toolStrip2);
             Controls.Add(toolStrip1);
             Controls.Add(lstVisorElementos);
             Controls.Add(rbtAscendente);
@@ -413,6 +456,8 @@
             grpbOrdenar.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            toolStrip2.ResumeLayout(false);
+            toolStrip2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -442,7 +487,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripBtnSerializar;
         private ToolStripButton toolStripBtnDeserializar;
-        private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripSeparator toolStripSeparator4;
@@ -452,5 +496,13 @@
         private ToolStripButton toolStripBtnRegistros;
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripSeparator toolStripSeparator7;
+        private ToolStripSeparator toolStripSeparator8;
+        private ToolStrip toolStrip2;
+        private ToolStripLabel lblNombreUsuario;
+        private ToolStripLabel lblFecha;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator10;
+        private ToolStripSeparator toolStripSeparator9;
+        private ColumnHeader columnHeader1;
     }
 }

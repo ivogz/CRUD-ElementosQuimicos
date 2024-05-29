@@ -94,7 +94,7 @@ namespace Frm
 
         protected bool TryParseCambiarBandera(string str, out double value, string strMessageBox)
         {
-            if (double.TryParse(str, out value))
+            if (double.TryParse(str, out value) && double.Parse(str) > 0)
             {
                 return true;
             }
@@ -107,7 +107,7 @@ namespace Frm
 
         protected bool TryParseCambiarBandera(string str, out int value, string strMessageBox)
         {
-            if (int.TryParse(str, out value))
+            if (int.TryParse(str, out value) && int.Parse(str) > 1)
             {
                 return true;
             }

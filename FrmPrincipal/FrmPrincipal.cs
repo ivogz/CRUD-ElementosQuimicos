@@ -9,6 +9,7 @@ namespace Frm
         List<Laboratorio> laboratorios;
         private int lvIndex;
         private List<Elemento> listaEnUso;
+        private Usuario usuarioEnUso;
 
 
         public FrmPrincipal()
@@ -20,10 +21,14 @@ namespace Frm
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Formulario principal.";
 
-            Laboratorio lab1 = new Laboratorio("labo facu", "avella", ETamaños.Grande);
+        }
 
+        public FrmPrincipal(Usuario usuarioExitoso) : this()
+        {
+            this.usuarioEnUso = usuarioExitoso;
+            this.lblNombreUsuario.Text = this.usuarioEnUso.Nombre;
+            this.lblFecha.Text = $"{DateTime.Now:yyyy-MM-dd}";
             ActualizarVisor();
-
         }
 
         private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
@@ -60,6 +65,10 @@ namespace Frm
                 this.lstVisorElementos.Items.Add(e.ToString());
             }
 
+            foreach (ColumnHeader columna in lstVisorElementos.Columns)
+            {
+                columna.Width = 200;
+            }
 
 
         }
@@ -109,15 +118,21 @@ namespace Frm
 
         private void AñadirElementoYActualizarVisor(FrmElemento frm)
         {
-
-            Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
-
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
+            if (this.laboratorios.Count > 0)
             {
-                MessageBox.Show(frm.MiElemento.ToString());
-                laboratorios[this.lvIndex] += frm.MiElemento;
-                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
+
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    MessageBox.Show(frm.MiElemento.ToString());
+                    laboratorios[this.lvIndex] += frm.MiElemento;
+                    ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Falta añadir un laboratorio");
             }
 
 
@@ -135,36 +150,28 @@ namespace Frm
                 switch (radioButton.Name)
                 {
                     case "rbtNumeroAtomico":
-                        MessageBox.Show("rbtNumeroAtomico seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.NumeroAtomico);
 
                         break;
                     case "rbtNombre":
-                        MessageBox.Show("rbtNombre seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.Nombre);
                         break;
                     case "rbtSimbolo":
-                        MessageBox.Show("rbtSimbolo seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.Simbolo);
                         break;
                     case "rbtGrupo":
-                        MessageBox.Show("rbtGrupo seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.Grupo);
                         break;
                     case "rbtPeriodo":
-                        MessageBox.Show("rbtPeriodo seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.Periodo);
                         break;
                     case "rbtMasaAtomica":
-                        MessageBox.Show("rbtMasaAtomica seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.MasaAtomica);
                         break;
                     case "rbtProtones":
-                        MessageBox.Show("rbtProtones seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.Protones);
                         break;
                     case "rbtNeutrones":
-                        MessageBox.Show("rbtNeutrones seleccionado");
                         OrdenarPorAtributoAscDes(AtributosElemento.Neutrones);
                         break;
                     case "rbtAscendente":
@@ -196,17 +203,20 @@ namespace Frm
 
         private void OrdenarPorAtributoAscDes(AtributosElemento atributo)
         {
-            Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
+            if (laboratorios.Count > 1)
+            {
+                Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
 
-            if (rbtAscendente.Checked == true)
-            {
-                this.listaEnUso = laboratorioSeleccionado.OrdenarPor(atributo, laboratorioSeleccionado.Elementos, true);
-                ActualizarVisorElementos(this.listaEnUso);
-            }
-            else
-            {
-                this.listaEnUso = laboratorioSeleccionado.OrdenarPor(atributo, laboratorioSeleccionado.Elementos, false);
-                ActualizarVisorElementos(this.listaEnUso);
+                if (rbtAscendente.Checked == true)
+                {
+                    this.listaEnUso = laboratorioSeleccionado.OrdenarPor(atributo, laboratorioSeleccionado.Elementos, true);
+                    ActualizarVisorElementos(this.listaEnUso);
+                }
+                else
+                {
+                    this.listaEnUso = laboratorioSeleccionado.OrdenarPor(atributo, laboratorioSeleccionado.Elementos, false);
+                    ActualizarVisorElementos(this.listaEnUso);
+                }
             }
         }
 

@@ -19,7 +19,7 @@ namespace Frm
             if (frmLogin.ShowDialog() == DialogResult.OK)
             {
                 // Si el login es exitoso, iniciar el formulario principal
-                Application.Run(new FrmPrincipal());
+                Application.Run(new FrmPrincipal(frmLogin.usuarioExitoso));
             }
             
         }

@@ -102,11 +102,6 @@ namespace Entidades
             this.ObtenerAsignarProtonesNeutrones(masaAtomica);
         }
 
-        public virtual string IndicarUbicacion()
-        {
-            return ($"El elemento se ubica en grupo: {this.grupo} período: {this.periodo}");
-        }
-
         public virtual bool ConfirmarTodosAtributosAsignados()
         {
             if (this.grupo != -1 && this.periodo != -1 && this.masaAtomica != -1) { return true; }
