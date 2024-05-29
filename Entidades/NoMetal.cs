@@ -62,13 +62,6 @@ namespace Entidades
             this.puntoFusion = puntoFusion;
         }
 
-        public override bool ConfirmarTodosAtributosAsignados()
-        {
-            if (base.ConfirmarTodosAtributosAsignados() && this.puntoEbullicion != -1 && this.puntoFusion != -1 && this.estadoNatural.ToString() != "Desconocido")
-                {return true;}
-            else {return false;}
-        }
-
         protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
         {
 

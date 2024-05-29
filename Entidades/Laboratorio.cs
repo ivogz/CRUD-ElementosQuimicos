@@ -163,6 +163,12 @@ namespace Entidades
             }
             return l;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         // FIN SOBRECARGAS
     }
 }

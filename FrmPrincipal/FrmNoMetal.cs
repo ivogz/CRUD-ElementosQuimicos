@@ -39,7 +39,7 @@ namespace Frm
 
         }
 
-        public FrmNoMetal (NoMetal nm) : base(nm)
+        public FrmNoMetal(NoMetal nm) : base(nm)
         {
             InitializeComponent();
 

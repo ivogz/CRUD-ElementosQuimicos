@@ -55,13 +55,6 @@ namespace Entidades
             this.usoPrincipal = usoPrincipal;
         }
 
-        public override bool ConfirmarTodosAtributosAsignados()
-        {
-            if (base.ConfirmarTodosAtributosAsignados() && this.lugarDeObtencion != "Se desconoce" && this.usoPrincipal != "Se desconoce") 
-                { return true; }
-            else { return false; }
-        }
-
         protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
         {
 

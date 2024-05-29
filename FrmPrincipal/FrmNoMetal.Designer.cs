@@ -36,6 +36,10 @@
             lblPuntoDeFusion = new Label();
             SuspendLayout();
             // 
+            // lblElemento
+            // 
+            lblElemento.Text = "Elemento No Metal";
+            // 
             // btnAñadir
             // 
             btnAñadir.Text = "Añadir no metal.";

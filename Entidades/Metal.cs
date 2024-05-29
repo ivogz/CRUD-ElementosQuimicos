@@ -62,13 +62,6 @@ namespace Entidades
             this.color = color;
         }
 
-        public override bool ConfirmarTodosAtributosAsignados()
-        {
-            if (base.ConfirmarTodosAtributosAsignados() && this.cantidadRadioactividad != -1 && this.color != "Se desconoce") 
-                {return true;}
-            else {return false;}
-        }
-
         protected override void ObtenerAsignarProtonesNeutrones(double masaAtomica)
         {
 

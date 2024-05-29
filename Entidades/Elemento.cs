@@ -102,12 +102,6 @@ namespace Entidades
             this.ObtenerAsignarProtonesNeutrones(masaAtomica);
         }
 
-        public virtual bool ConfirmarTodosAtributosAsignados()
-        {
-            if (this.grupo != -1 && this.periodo != -1 && this.masaAtomica != -1) { return true; }
-            else { return false; }
-        }
-
         protected abstract void ObtenerAsignarProtonesNeutrones(double masaAtomica);
 
 

@@ -31,19 +31,6 @@ namespace Frm
             ActualizarVisor();
         }
 
-        private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
-        {
-            FrmAñadirLaboratorio frmAñadirLaboratorio = new FrmAñadirLaboratorio();
-            frmAñadirLaboratorio.ShowDialog();
-
-            if (frmAñadirLaboratorio.DialogResult == DialogResult.OK)
-            {
-                this.laboratorios.Add(frmAñadirLaboratorio.MiLaboratorio);
-                this.ActualizarVisor();
-            }
-
-        }
-
         private void ActualizarVisor()
         {
             this.lstVisorLaboratorios.Items.Clear();
@@ -69,7 +56,18 @@ namespace Frm
             {
                 columna.Width = 200;
             }
+        }
 
+        private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
+        {
+            FrmAñadirLaboratorio frmAñadirLaboratorio = new FrmAñadirLaboratorio();
+            frmAñadirLaboratorio.ShowDialog();
+
+            if (frmAñadirLaboratorio.DialogResult == DialogResult.OK)
+            {
+                this.laboratorios.Add(frmAñadirLaboratorio.MiLaboratorio);
+                this.ActualizarVisor();
+            }
 
         }
 
