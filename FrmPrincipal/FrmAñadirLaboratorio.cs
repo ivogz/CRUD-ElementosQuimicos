@@ -57,13 +57,11 @@ namespace Frm
             try
             {
                 this.miLaboratorio = new Laboratorio(nombre, ubicacion, tamaño);
-                // Si la creación es exitosa, establecer el resultado del diálogo a OK y cerrar el formulario
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception)
             {
-                // Mostrar un mensaje de error al usuario y permitirle volver a intentar
                 MessageBox.Show("Error al crear el laboratorio");
             }
 

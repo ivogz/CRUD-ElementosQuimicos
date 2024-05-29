@@ -78,8 +78,6 @@ namespace Entidades
         {
             this.nAtomico = nAtomico;
             this.nombre = nombre;
-            //operador ternario; condicion ? (si es true pasa esto) : (si es false pasa esto)
-            //this.simbolo = !string.IsNullOrEmpty(nombre) ? nombre[0].ToString() : string.Empty;
             this.simbolo = simbolo;
             this.grupo = -1;
             this.periodo = -1;

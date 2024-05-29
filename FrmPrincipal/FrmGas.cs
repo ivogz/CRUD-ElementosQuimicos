@@ -43,7 +43,6 @@ namespace Frm
 
             añadirOpcionesAComboBox();
 
-            // Buscar el índice del valor de gas.Subcategoria y seleccionarlo
             int subcategoriaIndex = this.cboSubcategoria.FindStringExact(gas.Subcategoria.ToString());
             if (subcategoriaIndex != -1)
             {
@@ -89,13 +88,11 @@ namespace Frm
                 try
                 {
                     this.MiElemento = new Gas(base.NAtomico, base.Nombre, base.Simbolo, base.Grupo, base.Periodo, base.MasaAtomica, this.LugarDeObtencion, this.UsoPrincipal);
-                    // Si la creación es exitosa, establecer el resultado del diálogo a OK y cerrar el formulario
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception)
                 {
-                    // Mostrar un mensaje de error al usuario y permitirle volver a intentar
                     MessageBox.Show("Error al crear el Elemento, intente de nuevo");
                 }
             }
