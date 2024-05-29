@@ -14,4 +14,4 @@ Podremos ordenar de manera ascendente y descendente en base a las caracteristica
 
 #### Diagrama de clases:
 
-
+![Diagrama de clases](https://github.com/ivogz/Gonzalez.Ivan.Primer.Parcial/blob/88907b695d75937063bbf96e3f9fcc4706c83b09/DiagramaDeClases.png)
