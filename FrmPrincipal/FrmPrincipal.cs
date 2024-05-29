@@ -384,5 +384,16 @@ namespace Frm
             FrmUsuariosLog frmRegistros = new FrmUsuariosLog();
             frmRegistros.ShowDialog();
         }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas cerrar la aplicación?",
+                                          "Confirmar Cierre", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

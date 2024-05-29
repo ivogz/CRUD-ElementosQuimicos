@@ -50,6 +50,7 @@
             rbtDescendente = new RadioButton();
             btnAñadirLaboratorio = new Button();
             lstVisorElementos = new ListView();
+            columnHeader1 = new ColumnHeader();
             toolStrip1 = new ToolStrip();
             toolStripSeparator6 = new ToolStripSeparator();
             toolStripSeparator3 = new ToolStripSeparator();
@@ -68,7 +69,6 @@
             toolStripSeparator10 = new ToolStripSeparator();
             toolStripSeparator9 = new ToolStripSeparator();
             lblFecha = new ToolStripLabel();
-            columnHeader1 = new ColumnHeader();
             grpElementos.SuspendLayout();
             grpbOrdenar.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -451,6 +451,7 @@
             Controls.Add(grpElementos);
             Name = "FrmPrincipal";
             Text = "Form1";
+            FormClosing += FrmPrincipal_FormClosing;
             grpElementos.ResumeLayout(false);
             grpbOrdenar.ResumeLayout(false);
             grpbOrdenar.PerformLayout();
