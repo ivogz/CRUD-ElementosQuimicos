@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,6 +31,8 @@ namespace Entidades
             get { return this.subcategoria; }
             set { this.subcategoria = value; }
         }
+
+        static Gas() { Gas.tipoElemento = "G"; }
 
         public Gas() { }
 

@@ -18,6 +18,7 @@ namespace Entidades
         protected double masaAtomica;
         protected int protones;
         protected int neutrones;
+        protected static string tipoElemento;
         //ATRIBUTOS
 
         //PROPIEDADES

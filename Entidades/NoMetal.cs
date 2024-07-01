@@ -35,6 +35,8 @@ namespace Entidades
             set { this.puntoFusion = value; }
         }
 
+        static NoMetal() { NoMetal.tipoElemento = "NM"; }
+
         public NoMetal() { }
 
         public NoMetal(int nAtomico, string nombre, string simbolo) : base(nAtomico, nombre, simbolo)

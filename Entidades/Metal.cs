@@ -31,11 +31,7 @@ namespace Entidades
         }
 
 
-        public ECategoriasMetales Categoria
-        {
-            get { return subcategoria; }
-            set { this.subcategoria = value; }
-        }
+        static Metal() { Metal.tipoElemento = "M"; }
 
         public Metal() { }
 
