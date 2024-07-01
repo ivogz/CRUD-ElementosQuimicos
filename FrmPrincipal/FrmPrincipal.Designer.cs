@@ -160,7 +160,7 @@
             lstVisorLaboratorios.Dock = DockStyle.Top;
             lstVisorLaboratorios.Location = new Point(0, 0);
             lstVisorLaboratorios.Name = "lstVisorLaboratorios";
-            lstVisorLaboratorios.Size = new Size(708, 71);
+            lstVisorLaboratorios.Size = new Size(774, 71);
             lstVisorLaboratorios.TabIndex = 6;
             lstVisorLaboratorios.UseCompatibleStateImageBehavior = false;
             lstVisorLaboratorios.SelectedIndexChanged += lstVisor_SelectedIndexChanged;
@@ -314,7 +314,7 @@
             lstVisorElementos.Dock = DockStyle.Top;
             lstVisorElementos.Location = new Point(0, 71);
             lstVisorElementos.Name = "lstVisorElementos";
-            lstVisorElementos.Size = new Size(708, 245);
+            lstVisorElementos.Size = new Size(774, 245);
             lstVisorElementos.TabIndex = 10;
             lstVisorElementos.UseCompatibleStateImageBehavior = false;
             // 

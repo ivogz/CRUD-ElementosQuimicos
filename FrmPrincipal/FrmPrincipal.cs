@@ -149,7 +149,6 @@ namespace Frm
                 {
                     case "rbtNumeroAtomico":
                         OrdenarPorAtributoAscDes(AtributosElemento.NumeroAtomico);
-
                         break;
                     case "rbtNombre":
                         OrdenarPorAtributoAscDes(AtributosElemento.Nombre);
@@ -388,7 +387,7 @@ namespace Frm
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas cerrar la aplicación?",
-                                          "Confirmar Cierre", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                                          "Confirmar Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No)
             {
