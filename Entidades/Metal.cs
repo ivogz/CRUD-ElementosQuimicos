@@ -75,9 +75,9 @@ namespace Entidades
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendLine("Subcategoria: "+this.subcategoria.ToString());
-            sb.AppendLine("Cantidad de radioactividad: "+this.cantidadRadioactividad.ToString());
-            sb.AppendLine("Color: "+this.color);
+            sb.AppendLine(" || Subcategoria: " + this.subcategoria.ToString());
+            sb.AppendLine(" || Cantidad de radioactividad: " + this.cantidadRadioactividad.ToString());
+            sb.AppendLine(" || Color: " + this.color);
 
             return sb.ToString();
 

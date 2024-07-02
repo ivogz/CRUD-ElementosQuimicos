@@ -103,16 +103,16 @@ namespace Entidades
         {
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.AppendLine("Nombre: " +this.Nombre);
-            sb.AppendLine("Ubicacion: " + this.Ubicacion);
-            sb.AppendLine("Tamaño: "+this.Tamaño.ToString());
-            sb.AppendLine("Maximo de elementos: "+this.CantMaxElementos.ToString());
+            sb.AppendLine("|| Nombre: " +this.Nombre);
+            sb.AppendLine(" || Ubicacion: " + this.Ubicacion);
+            sb.AppendLine(" || Tamaño: " + this.Tamaño.ToString());
+            sb.AppendLine(" || Maximo de elementos: " + this.CantMaxElementos.ToString() + " ||");
             sb.AppendLine();
 
-            foreach (Elemento e in this.Elementos)
-            {
-                sb.AppendLine(e.ToString());
-            }
+            //foreach (Elemento e in this.Elementos)
+            //{
+            //    sb.AppendLine(e.ToString());
+            //}
 
             return sb.ToString();
         }

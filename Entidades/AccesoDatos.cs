@@ -93,7 +93,7 @@ namespace Entidades
                         (int)lector["periodo"],
                         double.Parse(lector["masaAtomica"].ToString()),
                         lector["lugarDeObtencion"].ToString(),
-                        lector["usoPrincipal"].ToString()
+                        lector["UsoPrincipal"].ToString()
 
                         );
 
@@ -110,7 +110,8 @@ namespace Entidades
                         lector["simbolo"].ToString(),
                         (int)lector["grupo"],
                         (int)lector["periodo"],
-                        (ECategoriasMetales)(int)lector["subcategoria"],
+                        //(ETamaño)Enum.Parse(typeof(ETamaño), lector["tamañoGarras"].ToString());
+                        (ECategoriasMetales)Enum.Parse(typeof(ECategoriasMetales),lector["subcategoria"].ToString()),
                         double.Parse(lector["masaAtomica"].ToString()),
                         (int)lector["cantidadRadioactividad"],
                         lector["color"].ToString()
@@ -133,7 +134,7 @@ namespace Entidades
                         (int)lector["grupo"],
                         (int)lector["periodo"],
                         double.Parse(lector["masaAtomica"].ToString()),
-                        (EEstados)(int)lector["estadoNatural"],
+                        (EEstados)Enum.Parse(typeof(EEstados), lector["estadoNatural"].ToString()),
                         double.Parse(lector["puntoEbullicion"].ToString()),
                         double.Parse(lector["puntoFusion"].ToString())
                         );
@@ -162,8 +163,49 @@ namespace Entidades
             return lista;
         }
 
+        public List<Elemento> CompararListas(List<Elemento> listaRecibida)
+        {
+            List<Elemento> lista = ObtenerListaBD();
+            List<Elemento> listaSinDuplicados = new List<Elemento>();
 
-        public bool AgregarDato(Elemento param)
+
+            foreach (Elemento e in listaRecibida)
+            {
+                bool encontrado = false;
+                foreach (Elemento e2 in lista)
+                {
+                    if (e2 == e)
+                    {
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!encontrado)
+                {
+                    listaSinDuplicados.Add(e);
+                }
+            }
+
+            return listaSinDuplicados;
+        }
+
+        public void SubirLista(List<Elemento> lista)
+        {
+
+            List <Elemento> listaSinDuplicados = CompararListas(lista);
+
+
+            foreach (Elemento ele in listaSinDuplicados)
+            {
+                AgregarElemento(ele);
+            }
+
+
+        }
+
+
+        public bool AgregarElemento(Elemento param)
         {
             bool rta = true;
 
@@ -351,7 +393,48 @@ namespace Entidades
 
         }
 
+        public bool EliminarElemento(Elemento param)
+        {
 
+            bool rta = true;
+
+            try
+            {
+                this.comando = new SqlCommand();
+
+                this.comando.Parameters.AddWithValue("@nAtomico", param.NAtomico);
+
+                string sql = "DELETE FROM Elementos ";
+                sql += "WHERE nAtomico = @nAtomico";
+
+                this.comando.CommandType = CommandType.Text;
+                this.comando.CommandText = sql;
+                this.comando.Connection = this.conexion;
+
+                this.conexion.Open();
+
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return rta;
+        }
 
 
 

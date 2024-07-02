@@ -81,10 +81,10 @@ namespace Entidades
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendLine("Subcategoria: "+this.subcategoria.ToString());
-            sb.AppendLine("Estado natural: "+this.estadoNatural.ToString());
-            sb.AppendLine("Punto de ebullicion: "+this.puntoEbullicion.ToString());
-            sb.AppendLine("Punto de fusion: "+this.puntoFusion.ToString());
+            sb.AppendLine(" || Subcategoria: " + this.subcategoria.ToString());
+            sb.AppendLine(" || Estado natural: " + this.estadoNatural.ToString());
+            sb.AppendLine(" || Punto de ebullicion: " + this.puntoEbullicion.ToString());
+            sb.AppendLine(" || Punto de fusion: " + this.puntoFusion.ToString());
 
             return sb.ToString();
 

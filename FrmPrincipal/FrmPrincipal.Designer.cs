@@ -162,11 +162,13 @@
             // lstVisorLaboratorios
             // 
             lstVisorLaboratorios.Dock = DockStyle.Top;
+            lstVisorLaboratorios.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lstVisorLaboratorios.Location = new Point(0, 0);
             lstVisorLaboratorios.Name = "lstVisorLaboratorios";
             lstVisorLaboratorios.Size = new Size(841, 71);
             lstVisorLaboratorios.TabIndex = 6;
             lstVisorLaboratorios.UseCompatibleStateImageBehavior = false;
+            lstVisorLaboratorios.View = View.List;
             lstVisorLaboratorios.SelectedIndexChanged += lstVisor_SelectedIndexChanged;
             // 
             // grpbOrdenar
@@ -316,11 +318,14 @@
             // 
             lstVisorElementos.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             lstVisorElementos.Dock = DockStyle.Top;
+            lstVisorElementos.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lstVisorElementos.HideSelection = true;
             lstVisorElementos.Location = new Point(0, 71);
             lstVisorElementos.Name = "lstVisorElementos";
             lstVisorElementos.Size = new Size(841, 245);
             lstVisorElementos.TabIndex = 10;
             lstVisorElementos.UseCompatibleStateImageBehavior = false;
+            lstVisorElementos.View = View.SmallIcon;
             // 
             // toolStrip1
             // 
@@ -487,6 +492,7 @@
             btnEliminarDatoBD.TabIndex = 16;
             btnEliminarDatoBD.Text = "Eliminar dato de BD";
             btnEliminarDatoBD.UseVisualStyleBackColor = false;
+            btnEliminarDatoBD.Click += btnEliminarDatoBD_Click;
             // 
             // FrmPrincipal
             // 

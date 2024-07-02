@@ -76,9 +76,9 @@ namespace Entidades
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendLine("Subcategoria: " + this.subcategoria.ToString());
-            sb.AppendLine("Lugar de obtencion: "+this.lugarDeObtencion);
-            sb.AppendLine("Uso principal: "+this.usoPrincipal);
+            sb.AppendLine(" || Subcategoria: " + this.subcategoria.ToString());
+            sb.AppendLine(" || Lugar de obtencion: " + this.lugarDeObtencion);
+            sb.AppendLine(" || Uso principal: " + this.usoPrincipal);
 
             return sb.ToString();
 

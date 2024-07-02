@@ -52,23 +52,25 @@ namespace Frm
                 this.lstVisorElementos.Items.Add(e.ToString());
             }
 
-            foreach (ColumnHeader columna in lstVisorElementos.Columns)
-            {
-                columna.Width = 200;
-            }
         }
 
         private void btnAñadirLaboratorio_Click(object sender, EventArgs e)
         {
-            FrmAñadirLaboratorio frmAñadirLaboratorio = new FrmAñadirLaboratorio();
-            frmAñadirLaboratorio.ShowDialog();
-
-            if (frmAñadirLaboratorio.DialogResult == DialogResult.OK)
+            if (this.laboratorios.Count == 0)
             {
-                this.laboratorios.Add(frmAñadirLaboratorio.MiLaboratorio);
-                this.ActualizarVisor();
-            }
+                FrmAñadirLaboratorio frmAñadirLaboratorio = new FrmAñadirLaboratorio();
+                frmAñadirLaboratorio.ShowDialog();
 
+                if (frmAñadirLaboratorio.DialogResult == DialogResult.OK)
+                {
+                    this.laboratorios.Add(frmAñadirLaboratorio.MiLaboratorio);
+                    this.ActualizarVisor();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ya existe un laboratorio");
+            }
         }
 
         private void lstVisor_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,7 +202,7 @@ namespace Frm
 
         private void OrdenarPorAtributoAscDes(AtributosElemento atributo)
         {
-            if (laboratorios.Count > 1)
+            if (laboratorios.Count > 0)
             {
                 Laboratorio laboratorioSeleccionado = laboratorios[this.lvIndex];
 
@@ -262,63 +264,67 @@ namespace Frm
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
-
-            if (lstVisorElementos.SelectedItems.Count == 1)
+            try
             {
-                int indice = this.lstVisorElementos.SelectedIndices[0];
+                Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
 
-                if (indice != -1)
+                if (lstVisorElementos.SelectedItems.Count == 1)
                 {
-                    if (laboratorioSeleccionado.Elementos[indice] is Gas gas)
-                    {
-                        FrmGas frmGas = new(gas);
-                        frmGas.ShowDialog();
+                    int indice = this.lstVisorElementos.SelectedIndices[0];
 
-                        if (frmGas.DialogResult == DialogResult.OK)
-                        {
-                            laboratorioSeleccionado.Elementos[indice] = frmGas.MiElemento;
-                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                        }
-                    }
-                    else if (laboratorioSeleccionado.Elementos[indice] is NoMetal nm)
+                    if (indice != -1)
                     {
-                        FrmNoMetal frmNoMetal = new(nm);
-                        frmNoMetal.ShowDialog();
+                        if (laboratorioSeleccionado.Elementos[indice] is Gas gas)
+                        {
+                            FrmGas frmGas = new(gas);
+                            frmGas.ShowDialog();
 
-                        if (frmNoMetal.DialogResult == DialogResult.OK)
-                        {
-                            laboratorioSeleccionado.Elementos[indice] = frmNoMetal.MiElemento;
-                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            if (frmGas.DialogResult == DialogResult.OK)
+                            {
+                                laboratorioSeleccionado.Elementos[indice] = frmGas.MiElemento;
+                                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            }
                         }
-                    }
-                    else if (laboratorioSeleccionado.Elementos[indice] is Metal metal)
-                    {
-                        FrmMetal frmMetal = new(metal);
-                        frmMetal.ShowDialog();
-                        if (frmMetal.DialogResult == DialogResult.OK)
+                        else if (laboratorioSeleccionado.Elementos[indice] is NoMetal nm)
                         {
-                            laboratorioSeleccionado.Elementos[indice] = frmMetal.MiElemento;
-                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            FrmNoMetal frmNoMetal = new(nm);
+                            frmNoMetal.ShowDialog();
+
+                            if (frmNoMetal.DialogResult == DialogResult.OK)
+                            {
+                                laboratorioSeleccionado.Elementos[indice] = frmNoMetal.MiElemento;
+                                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            }
+                        }
+                        else if (laboratorioSeleccionado.Elementos[indice] is Metal metal)
+                        {
+                            FrmMetal frmMetal = new(metal);
+                            frmMetal.ShowDialog();
+                            if (frmMetal.DialogResult == DialogResult.OK)
+                            {
+                                laboratorioSeleccionado.Elementos[indice] = frmMetal.MiElemento;
+                                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            }
                         }
                     }
                 }
-            }
-            else if (lstVisorLaboratorios.SelectedItems.Count == 1)
-            {
-                FrmAñadirLaboratorio frmLabo = new(laboratorioSeleccionado);
-                frmLabo.ShowDialog();
-
-                if (frmLabo.DialogResult == DialogResult.OK)
+                else if (lstVisorLaboratorios.SelectedItems.Count == 1)
                 {
-                    this.laboratorios[lvIndex] = frmLabo.MiLaboratorio;
-                    ActualizarVisor();
+                    FrmAñadirLaboratorio frmLabo = new(laboratorioSeleccionado);
+                    frmLabo.ShowDialog();
+
+                    if (frmLabo.DialogResult == DialogResult.OK)
+                    {
+                        this.laboratorios[lvIndex] = frmLabo.MiLaboratorio;
+                        ActualizarVisor();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            catch (Exception) { MessageBox.Show("No hay ningun laboratorio"); }
         }
 
         private void toolStripBtnSerializar_Click(object sender, EventArgs e)
@@ -436,12 +442,9 @@ namespace Frm
                 try
                 {
 
-                    foreach (Elemento ele in this.laboratorios[this.lvIndex].Elementos)
-                    {
-                        ado.AgregarDato(ele);
-                    }
+                    ado.SubirLista(this.laboratorios[this.lvIndex].Elementos);
 
-                    MessageBox.Show("todo ok");
+                    MessageBox.Show("se subieron los datos correctamente");
                 }
 
                 catch
@@ -459,11 +462,10 @@ namespace Frm
         private void btnModificarDatoBD_Click(object sender, EventArgs e)
         {
 
-            Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
-
             if (lstVisorElementos.SelectedItems.Count == 1)
             {
                 int indice = this.lstVisorElementos.SelectedIndices[0];
+                Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
 
                 if (indice != -1)
                 {
@@ -519,6 +521,55 @@ namespace Frm
                     MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+
+
+            }
+
+
+
+        }
+
+        private void btnEliminarDatoBD_Click(object sender, EventArgs e)
+        {
+
+
+
+            if (lstVisorElementos.SelectedItems.Count == 1)
+            {
+                Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
+                int indice = this.lstVisorElementos.SelectedIndices[0];
+
+                if (indice != -1)
+                {
+
+
+                    DialogResult confirm = MessageBox.Show("¿Estás seguro de que deseas eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (confirm == DialogResult.OK)
+                    {
+
+                        AccesoDatos ado = new AccesoDatos();
+
+                        if (this.listaEnUso == null)
+                        {
+                            bool rta = ado.EliminarElemento(laboratorioSeleccionado.Elementos[indice]);
+                            laboratorioSeleccionado.Elementos.RemoveAt(indice);
+                            this.ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            if (rta) { MessageBox.Show("Elemento eliminado correctamente"); }
+                            else { MessageBox.Show("No se pudo eliminar el elemento"); }
+
+                        }
+                        else
+                        {
+                            bool rta = ado.EliminarElemento(this.listaEnUso[indice]);
+                            this.laboratorios[lvIndex].Elementos.Remove(this.listaEnUso[indice]);
+                            this.ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+
+                            if (rta) { MessageBox.Show("Elemento eliminado correctamente"); }
+                            else { MessageBox.Show("No se pudo eliminar el elemento"); }
+                        }
+                    }
+                }
 
 
             }
