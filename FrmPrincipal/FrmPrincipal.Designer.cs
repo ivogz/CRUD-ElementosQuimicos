@@ -71,6 +71,8 @@
             lblFecha = new ToolStripLabel();
             btnTraerBD = new Button();
             btnSubirBD = new Button();
+            btnModificarDatoBD = new Button();
+            btnEliminarDatoBD = new Button();
             grpElementos.SuspendLayout();
             grpbOrdenar.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -439,10 +441,10 @@
             // 
             btnTraerBD.BackColor = Color.PaleTurquoise;
             btnTraerBD.Cursor = Cursors.Hand;
-            btnTraerBD.Location = new Point(724, 332);
+            btnTraerBD.Location = new Point(724, 328);
             btnTraerBD.Margin = new Padding(25);
             btnTraerBD.Name = "btnTraerBD";
-            btnTraerBD.Size = new Size(93, 51);
+            btnTraerBD.Size = new Size(83, 44);
             btnTraerBD.TabIndex = 13;
             btnTraerBD.Text = "Traer datos de BD";
             btnTraerBD.UseVisualStyleBackColor = false;
@@ -452,20 +454,47 @@
             // 
             btnSubirBD.BackColor = Color.PaleTurquoise;
             btnSubirBD.Cursor = Cursors.Hand;
-            btnSubirBD.Location = new Point(724, 418);
+            btnSubirBD.Location = new Point(724, 381);
             btnSubirBD.Margin = new Padding(25);
             btnSubirBD.Name = "btnSubirBD";
-            btnSubirBD.Size = new Size(93, 51);
+            btnSubirBD.Size = new Size(83, 44);
             btnSubirBD.TabIndex = 14;
             btnSubirBD.Text = "Subir datos a BD";
             btnSubirBD.UseVisualStyleBackColor = false;
             btnSubirBD.Click += btnSubirBD_Click;
+            // 
+            // btnModificarDatoBD
+            // 
+            btnModificarDatoBD.BackColor = Color.PaleTurquoise;
+            btnModificarDatoBD.Cursor = Cursors.Hand;
+            btnModificarDatoBD.Location = new Point(724, 432);
+            btnModificarDatoBD.Margin = new Padding(25);
+            btnModificarDatoBD.Name = "btnModificarDatoBD";
+            btnModificarDatoBD.Size = new Size(83, 42);
+            btnModificarDatoBD.TabIndex = 15;
+            btnModificarDatoBD.Text = "Modificar dato de BD";
+            btnModificarDatoBD.UseVisualStyleBackColor = false;
+            btnModificarDatoBD.Click += btnModificarDatoBD_Click;
+            // 
+            // btnEliminarDatoBD
+            // 
+            btnEliminarDatoBD.BackColor = Color.PaleTurquoise;
+            btnEliminarDatoBD.Cursor = Cursors.Hand;
+            btnEliminarDatoBD.Location = new Point(724, 480);
+            btnEliminarDatoBD.Margin = new Padding(25);
+            btnEliminarDatoBD.Name = "btnEliminarDatoBD";
+            btnEliminarDatoBD.Size = new Size(83, 42);
+            btnEliminarDatoBD.TabIndex = 16;
+            btnEliminarDatoBD.Text = "Eliminar dato de BD";
+            btnEliminarDatoBD.UseVisualStyleBackColor = false;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(841, 532);
+            Controls.Add(btnEliminarDatoBD);
+            Controls.Add(btnModificarDatoBD);
             Controls.Add(btnSubirBD);
             Controls.Add(btnTraerBD);
             Controls.Add(toolStrip2);
@@ -537,5 +566,7 @@
         private ColumnHeader columnHeader1;
         private Button btnTraerBD;
         private Button btnSubirBD;
+        private Button btnModificarDatoBD;
+        private Button btnEliminarDatoBD;
     }
 }

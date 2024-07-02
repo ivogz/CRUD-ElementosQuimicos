@@ -435,7 +435,7 @@ namespace Frm
 
                 try
                 {
-                    
+
                     foreach (Elemento ele in this.laboratorios[this.lvIndex].Elementos)
                     {
                         ado.AgregarDato(ele);
@@ -455,6 +455,76 @@ namespace Frm
                 MessageBox.Show("Debe crear un laboratorio primero");
             }
         }
-    
+
+        private void btnModificarDatoBD_Click(object sender, EventArgs e)
+        {
+
+            Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
+
+            if (lstVisorElementos.SelectedItems.Count == 1)
+            {
+                int indice = this.lstVisorElementos.SelectedIndices[0];
+
+                if (indice != -1)
+                {
+
+                    AccesoDatos ado = new AccesoDatos();
+
+                    if (laboratorioSeleccionado.Elementos[indice] is Gas gas)
+                    {
+                        FrmGas frmGas = new(gas);
+                        frmGas.ShowDialog();
+
+                        if (frmGas.DialogResult == DialogResult.OK)
+                        {
+                            laboratorioSeleccionado.Elementos[indice] = frmGas.MiElemento;
+                            bool rta = ado.ModificarElemento(frmGas.MiElemento);
+                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+
+                            if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
+                            else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                        }
+                    }
+                    else if (laboratorioSeleccionado.Elementos[indice] is NoMetal nm)
+                    {
+                        FrmNoMetal frmNoMetal = new(nm);
+                        frmNoMetal.ShowDialog();
+
+                        if (frmNoMetal.DialogResult == DialogResult.OK)
+                        {
+                            laboratorioSeleccionado.Elementos[indice] = frmNoMetal.MiElemento;
+                            bool rta = ado.ModificarElemento(frmNoMetal.MiElemento);
+                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
+                            else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                        }
+                    }
+                    else if (laboratorioSeleccionado.Elementos[indice] is Metal metal)
+                    {
+                        FrmMetal frmMetal = new(metal);
+                        frmMetal.ShowDialog();
+                        if (frmMetal.DialogResult == DialogResult.OK)
+                        {
+                            laboratorioSeleccionado.Elementos[indice] = frmMetal.MiElemento;
+                            bool rta = ado.ModificarElemento(frmMetal.MiElemento);
+                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
+                            else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+
+            }
+
+
+
+        }
     }
 }
