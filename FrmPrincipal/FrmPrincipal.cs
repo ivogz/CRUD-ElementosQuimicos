@@ -394,5 +394,67 @@ namespace Frm
                 e.Cancel = true;
             }
         }
+
+        // SEGUNDO PARCIAL
+
+
+        private void btnTraerBD_Click(object sender, EventArgs e)
+        {
+
+            if (this.laboratorios.Count > 0)
+            {
+                AccesoDatos ado = new AccesoDatos();
+
+                try
+                {
+
+                    this.laboratorios[this.lvIndex].Elementos = ado.ObtenerListaBD();
+
+                    ActualizarVisor();
+
+                    MessageBox.Show("todo ok");
+                }
+
+                catch
+                {
+                    MessageBox.Show("Ocurrio un error");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe crear un laboratorio primero");
+            }
+        }
+
+        private void btnSubirBD_Click(object sender, EventArgs e)
+        {
+            if (this.laboratorios.Count > 0)
+            {
+                AccesoDatos ado = new AccesoDatos();
+
+                try
+                {
+                    
+                    foreach (Elemento ele in this.laboratorios[this.lvIndex].Elementos)
+                    {
+                        ado.AgregarDato(ele);
+                    }
+
+                    MessageBox.Show("todo ok");
+                }
+
+                catch
+                {
+                    MessageBox.Show("Ocurrio un error");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe crear un laboratorio primero");
+            }
+        }
+    
     }
 }

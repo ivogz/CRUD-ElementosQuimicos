@@ -69,6 +69,8 @@
             toolStripSeparator10 = new ToolStripSeparator();
             toolStripSeparator9 = new ToolStripSeparator();
             lblFecha = new ToolStripLabel();
+            btnTraerBD = new Button();
+            btnSubirBD = new Button();
             grpElementos.SuspendLayout();
             grpbOrdenar.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -160,7 +162,7 @@
             lstVisorLaboratorios.Dock = DockStyle.Top;
             lstVisorLaboratorios.Location = new Point(0, 0);
             lstVisorLaboratorios.Name = "lstVisorLaboratorios";
-            lstVisorLaboratorios.Size = new Size(774, 71);
+            lstVisorLaboratorios.Size = new Size(841, 71);
             lstVisorLaboratorios.TabIndex = 6;
             lstVisorLaboratorios.UseCompatibleStateImageBehavior = false;
             lstVisorLaboratorios.SelectedIndexChanged += lstVisor_SelectedIndexChanged;
@@ -314,7 +316,7 @@
             lstVisorElementos.Dock = DockStyle.Top;
             lstVisorElementos.Location = new Point(0, 71);
             lstVisorElementos.Name = "lstVisorElementos";
-            lstVisorElementos.Size = new Size(774, 245);
+            lstVisorElementos.Size = new Size(841, 245);
             lstVisorElementos.TabIndex = 10;
             lstVisorElementos.UseCompatibleStateImageBehavior = false;
             // 
@@ -433,11 +435,39 @@
             lblFecha.Size = new Size(38, 26);
             lblFecha.Text = "Fecha";
             // 
+            // btnTraerBD
+            // 
+            btnTraerBD.BackColor = Color.PaleTurquoise;
+            btnTraerBD.Cursor = Cursors.Hand;
+            btnTraerBD.Location = new Point(724, 332);
+            btnTraerBD.Margin = new Padding(25);
+            btnTraerBD.Name = "btnTraerBD";
+            btnTraerBD.Size = new Size(93, 51);
+            btnTraerBD.TabIndex = 13;
+            btnTraerBD.Text = "Traer datos de BD";
+            btnTraerBD.UseVisualStyleBackColor = false;
+            btnTraerBD.Click += btnTraerBD_Click;
+            // 
+            // btnSubirBD
+            // 
+            btnSubirBD.BackColor = Color.PaleTurquoise;
+            btnSubirBD.Cursor = Cursors.Hand;
+            btnSubirBD.Location = new Point(724, 418);
+            btnSubirBD.Margin = new Padding(25);
+            btnSubirBD.Name = "btnSubirBD";
+            btnSubirBD.Size = new Size(93, 51);
+            btnSubirBD.TabIndex = 14;
+            btnSubirBD.Text = "Subir datos a BD";
+            btnSubirBD.UseVisualStyleBackColor = false;
+            btnSubirBD.Click += btnSubirBD_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(708, 532);
+            ClientSize = new Size(841, 532);
+            Controls.Add(btnSubirBD);
+            Controls.Add(btnTraerBD);
             Controls.Add(toolStrip2);
             Controls.Add(toolStrip1);
             Controls.Add(lstVisorElementos);
@@ -505,5 +535,7 @@
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripSeparator toolStripSeparator9;
         private ColumnHeader columnHeader1;
+        private Button btnTraerBD;
+        private Button btnSubirBD;
     }
 }

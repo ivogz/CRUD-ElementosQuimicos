@@ -61,7 +61,7 @@ namespace Entidades.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=DESKTOP-QE87EB5\SQLEXPRESS;Initial Catalog=CRUD_DB;Integrated Security=True.
+        ///   Busca una cadena traducida similar a Data Source=DESKTOP-QE87EB5\SQLEXPRESS;Initial Catalog=CRUD_DB;Integrated Security=True;Trust Server Certificate=True.
         /// </summary>
         internal static string miConexion {
             get {
