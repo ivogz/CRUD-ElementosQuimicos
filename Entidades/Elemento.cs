@@ -125,6 +125,11 @@ namespace Entidades
                 return false;
             }
 
+            if (e.GetType() != e1.GetType())
+            {
+                return false;
+            }
+
             return e.nAtomico == e1.nAtomico || e.nombre == e1.nombre || e.simbolo == e1.simbolo || (e.grupo != -1 && e.grupo == e1.grupo && e.periodo != -1 && e.periodo == e1.periodo);
         }
 
