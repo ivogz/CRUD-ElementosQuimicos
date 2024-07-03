@@ -103,7 +103,7 @@ namespace Entidades
         {
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.AppendLine("|| Nombre: " +this.Nombre);
+            sb.AppendLine("|| Nombre del laboratorio: " +this.Nombre);
             sb.AppendLine(" || Ubicacion: " + this.Ubicacion);
             sb.AppendLine(" || Tamaño: " + this.Tamaño.ToString());
             sb.AppendLine(" || Maximo de elementos: " + this.CantMaxElementos.ToString() + " ||");

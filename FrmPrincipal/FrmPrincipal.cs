@@ -56,6 +56,7 @@ namespace Frm
 
         private void AñadirBotonesLista()
         {
+            //añado todos los botones a la lista
             listaBotones = new List<Button>
             {
                 btnAñadirLaboratorio,
@@ -108,7 +109,7 @@ namespace Frm
 
             foreach (Laboratorio l in this.laboratorios)
             {
-                this.lstVisorLaboratorios.Items.Add(l.ToString()); //+= sino se reemplaza
+                this.lstVisorLaboratorios.Items.Add(l.ToString()); 
             }
 
         }
@@ -213,6 +214,7 @@ namespace Frm
 
         }
 
+        #region ordenamiento, uso de delegados
 
         private void OrdenarPorCheckedChanged(object sender, EventArgs e)
         {
@@ -293,6 +295,8 @@ namespace Frm
                 }
             }
         }
+
+#endregion
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -402,6 +406,8 @@ namespace Frm
             catch (Exception) { MessageBox.Show("No hay ningun laboratorio"); }
         }
 
+        #region archivos
+
         private void toolStripBtnSerializar_Click(object sender, EventArgs e)
         {
 
@@ -464,6 +470,8 @@ namespace Frm
             FrmUsuariosLog frmRegistros = new FrmUsuariosLog();
             frmRegistros.ShowDialog();
         }
+
+        #endregion
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
