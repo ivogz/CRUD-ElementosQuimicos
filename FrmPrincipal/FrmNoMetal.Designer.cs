@@ -40,6 +40,10 @@
             // 
             lblElemento.Text = "Elemento No Metal";
             // 
+            // cboSubcategoria
+            // 
+            cboSubcategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
             // btnAñadir
             // 
             btnAñadir.Text = "Añadir no metal.";
@@ -81,6 +85,7 @@
             // 
             // cboEstadoNatural
             // 
+            cboEstadoNatural.DropDownStyle = ComboBoxStyle.DropDownList;
             cboEstadoNatural.FormattingEnabled = true;
             cboEstadoNatural.Location = new Point(425, 316);
             cboEstadoNatural.Name = "cboEstadoNatural";

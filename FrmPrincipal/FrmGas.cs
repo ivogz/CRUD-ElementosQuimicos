@@ -56,7 +56,7 @@ namespace Frm
 
         }
 
-        private void añadirOpcionesAComboBox() 
+        private void añadirOpcionesAComboBox()
         {
             foreach (ECategoriasGases g in Enum.GetValues(typeof(ECategoriasGases)))
             {

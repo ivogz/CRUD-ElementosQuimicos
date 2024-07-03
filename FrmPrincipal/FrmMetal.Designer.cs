@@ -34,9 +34,13 @@
             lblRadioactividad = new Label();
             SuspendLayout();
             // 
-            // lblCorreoElectronico
+            // lblElemento
             // 
             lblElemento.Text = "Elemento Metal";
+            // 
+            // cboSubcategoria
+            // 
+            cboSubcategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // btnAñadir
             // 

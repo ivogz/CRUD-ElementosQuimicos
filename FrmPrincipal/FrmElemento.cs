@@ -21,7 +21,7 @@ namespace Frm
 
         Elemento miElemento;
 
-        public Elemento MiElemento { get { return this.miElemento; }  set { this.miElemento = value; } }
+        public Elemento MiElemento { get { return this.miElemento; } set { this.miElemento = value; } }
 
         public int NAtomico { get { return this.nAtomico; } }
         public int Grupo { get { return this.grupo; } }
@@ -41,7 +41,7 @@ namespace Frm
             InitializeComponent();
         }
 
-        public FrmElemento(Elemento elemento): this()
+        public FrmElemento(Elemento elemento) : this()
         {
             this.MiElemento = elemento;
             this.txtNAtomico.Text = elemento.NAtomico.ToString();
@@ -107,7 +107,7 @@ namespace Frm
 
         protected bool TryParseCambiarBandera(string str, out int value, string strMessageBox)
         {
-            if (int.TryParse(str, out value) && int.Parse(str) > 1)
+            if (int.TryParse(str, out value) && int.Parse(str) > 0)
             {
                 return true;
             }

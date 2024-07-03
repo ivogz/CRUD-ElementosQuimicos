@@ -31,7 +31,7 @@ namespace Frm
         {
             InitializeComponent();
 
-            añadirOpcionesAComboBox(); 
+            añadirOpcionesAComboBox();
 
             this.cboSubcategoria.SelectedIndex = 0;
 
@@ -84,7 +84,7 @@ namespace Frm
         private void btnAñadir_Click_1(object sender, EventArgs e)
         {
 
-            
+
 
             boolRadioactividad = TryParseCambiarBandera(txtRadioactividad.Text, out this.cantidadRadioactividad, "Radioactividad");
 
@@ -109,7 +109,7 @@ namespace Frm
             }
         }
 
-        
+
 
 
 

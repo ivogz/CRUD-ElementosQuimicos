@@ -159,6 +159,7 @@
             // 
             // cboSubcategoria
             // 
+            cboSubcategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cboSubcategoria.FormattingEnabled = true;
             cboSubcategoria.Location = new Point(225, 400);
             cboSubcategoria.Name = "cboSubcategoria";

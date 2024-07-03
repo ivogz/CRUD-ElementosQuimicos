@@ -38,6 +38,10 @@
             // 
             lblElemento.Text = "Elemento Gas";
             // 
+            // cboSubcategoria
+            // 
+            cboSubcategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
             // btnAñadir
             // 
             btnAñadir.Text = "Añadir Gas.";
