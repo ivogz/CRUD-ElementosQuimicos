@@ -13,6 +13,8 @@ Podremos ordenar de manera ascendente y descendente en base a las caracteristica
 
 ### Todo el contenido del parcial en la rama de segundo parcial.
 
+![SCRIPT SQL](https://github.com/ivogz/Gonzalez.Ivan.Primer.Parcial/blob/segundodoParcial/script.sql) 
+
 #### Diagrama de clases:
 
 ![Diagrama de clases](https://github.com/ivogz/Gonzalez.Ivan.Primer.Parcial/blob/88907b695d75937063bbf96e3f9fcc4706c83b09/DiagramaDeClases.png)
