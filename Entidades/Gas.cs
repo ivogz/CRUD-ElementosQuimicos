@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Gas : Elemento
+    public class Gas : Elemento , IcambiarInformacion
     {
 
         protected ECategoriasGases subcategoria;
@@ -69,21 +69,30 @@ namespace Entidades
 
         }
 
-
-        //POLIMORFISMO TOSTRING
-
-        public override string ToString()
+        #region interface
+        public override string MostrarDescripcion()
         {
+
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append(base.ToString());
+            sb.Append(base.MostrarDescripcion());
             sb.AppendLine(" || Subcategoria: " + this.subcategoria.ToString());
             sb.AppendLine(" || Lugar de obtencion: " + this.lugarDeObtencion);
             sb.AppendLine(" || Uso principal: " + this.usoPrincipal);
 
             return sb.ToString();
 
-
         }
+
+        public override string MostrarTipo()
+        {
+            return $"Elemento {this.nombre} es: Gas";
+        }
+
+        #endregion
+
+        //POLIMORFISMO TOSTRING
+
+        
 
     }
 }

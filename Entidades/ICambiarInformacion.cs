@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal interface IcambiarInformacion
+    public interface IcambiarInformacion
     {
 
         bool CambiarInformacion {  get;  }
@@ -14,6 +14,7 @@ namespace Entidades
         string MostrarDescripcion();
 
         string MostrarTipo();
+
 
 
     }

@@ -35,6 +35,27 @@ namespace Frm
             this.lblNombreUsuario.Text = this.usuarioEnUso.Nombre;
             this.lblFecha.Text = $"{DateTime.Now:yyyy-MM-dd}";
             ActualizarVisor();
+
+            switch (this.usuarioEnUso.Perfil)
+            {
+                case "vendedor":
+                    MessageBox.Show("Usted solo puede ver el CRUD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnAñadir.Enabled = false;
+                    btnModificar.Enabled = false;
+                    BtnEliminar.Enabled = false;
+                    btnSubirBD.Enabled = false;
+                    btnModificarDatoBD.Enabled = false;
+                    btnEliminarDatoBD.Enabled = false;
+                    break;
+                case "supervisor":
+                    MessageBox.Show("Usted no puede eliminar", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BtnEliminar.Enabled = false;
+                    btnEliminarDatoBD.Enabled = false;
+                    break;
+                case "administrador":
+                    MessageBox.Show("Usted tiene el control total", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+            }
         }
 
         private void ActualizarVisor()
@@ -132,7 +153,11 @@ namespace Frm
                 if (frm.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show(frm.MiElemento.ToString());
-                    laboratorios[this.lvIndex] += frm.MiElemento;
+                    if (laboratorioSeleccionado.Elementos.Count > 0)
+                    {
+                        frm.MiElemento.CambiarInformacion = laboratorioSeleccionado.Elementos[0].CambiarInformacion;
+                    }
+                    laboratorioSeleccionado += frm.MiElemento;
                     ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
                 }
             }
@@ -422,7 +447,7 @@ namespace Frm
 
                     this.laboratorios[this.lvIndex].Elementos = ado.ObtenerListaBD();
 
-                    ActualizarVisor();
+                    ActualizarVisorElementos(this.laboratorios[this.lvIndex].Elementos);
 
                     MessageBox.Show("todo ok");
                 }
@@ -600,6 +625,24 @@ namespace Frm
 
         }
 
+        private void btnCambiarInformacion_Click(object sender, EventArgs e)
+        {
+            if (this.laboratorios.Count > 0)
+            {
+                List<Elemento> laboratorio = this.laboratorios[0].Elementos; 
 
+                foreach (Elemento ele in laboratorio)
+                {
+                    ele.SwitchCambiarInformacion();
+                }
+
+                this.ActualizarVisorElementos(laboratorio);
+
+            }
+
+
+
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class NoMetal : Elemento
+    public class NoMetal : Elemento , IcambiarInformacion
     {
         protected ECategoriasNoMetales subcategoria;
         protected EEstados estadoNatural;
@@ -75,12 +75,12 @@ namespace Entidades
 
         }
 
-        //POLIMORFISMO TOSTRING
-
-        public override string ToString()
+        #region interface
+        public override string MostrarDescripcion()
         {
+
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append(base.ToString());
+            sb.Append(base.MostrarDescripcion());
             sb.AppendLine(" || Subcategoria: " + this.subcategoria.ToString());
             sb.AppendLine(" || Estado natural: " + this.estadoNatural.ToString());
             sb.AppendLine(" || Punto de ebullicion: " + this.puntoEbullicion.ToString());
@@ -88,8 +88,20 @@ namespace Entidades
 
             return sb.ToString();
 
-
         }
+
+        public override string MostrarTipo()
+        {
+            return $"Elemento {this.nombre} es: No Metal";
+        }
+
+        #endregion
+
+
+
+        //POLIMORFISMO TOSTRING
+
+        
 
 
     }

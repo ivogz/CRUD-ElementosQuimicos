@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Metal : Elemento
+    public class Metal : Elemento, IcambiarInformacion
     {
         protected ECategoriasMetales subcategoria;
         protected int cantidadRadioactividad;
@@ -68,21 +68,32 @@ namespace Entidades
             this.protones = (int)protonesDouble;
         }
 
-
-        //POLIMORFISMO TOSTRING
-
-        public override string ToString()
+        #region interface
+        public override string MostrarDescripcion()
         {
+
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append(base.ToString());
+            sb.Append(base.MostrarDescripcion());
             sb.AppendLine(" || Subcategoria: " + this.subcategoria.ToString());
             sb.AppendLine(" || Cantidad de radioactividad: " + this.cantidadRadioactividad.ToString());
             sb.AppendLine(" || Color: " + this.color);
 
             return sb.ToString();
 
-
         }
+
+        public override string MostrarTipo()
+        {
+            return $"Elemento {this.nombre} es: Metal";
+        }
+
+        #endregion
+
+
+
+        //POLIMORFISMO TOSTRING
+
+        
 
     }
 }

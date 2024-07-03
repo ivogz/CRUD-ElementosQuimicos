@@ -19,11 +19,13 @@ namespace Entidades
         protected int protones;
         protected int neutrones;
         protected static string tipoElemento;
+        protected bool cambiarInformacion;
         //PROPIEDADES DE INTERFACE
 
         public bool CambiarInformacion
         {
-
+            get { return this.cambiarInformacion; }
+            set {  this.cambiarInformacion = value;}
         }
 
         //PROPIEDADES
@@ -90,6 +92,7 @@ namespace Entidades
             this.masaAtomica = -1;
             this.protones = -1;
             this.neutrones = -1;
+            this.cambiarInformacion = false;
         }
 
         public Elemento(int nAtomico, string nombre, string simbolo, int grupo, int periodo) : this(nAtomico, nombre, simbolo)
@@ -144,12 +147,13 @@ namespace Entidades
             return HashCode.Combine(nAtomico, nombre, simbolo, grupo, periodo);
         }
 
-        public override string ToString()
+        #region interface
+        public virtual string MostrarDescripcion()
         {
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-            sb.AppendLine(" || Nombre: " +this.nombre);
+            sb.AppendLine(" || Nombre: " + this.nombre);
             sb.AppendLine(" || Simbolo: " + this.simbolo);
             sb.AppendLine(" || Numero atomico: " + this.nAtomico.ToString());
             sb.AppendLine(" || Grupo: " + this.grupo.ToString());
@@ -158,6 +162,34 @@ namespace Entidades
             sb.AppendLine(" || Protones: " + this.protones.ToString());
             sb.AppendLine(" || Neutrones: " + this.neutrones.ToString());
             return sb.ToString();
+
+        }
+
+        public virtual string MostrarTipo()
+        {
+            return "Tipo de dato: Elemento";
+        }
+
+        #endregion
+
+        public void SwitchCambiarInformacion()
+        {
+            CambiarInformacion = !CambiarInformacion;
+        }
+
+        public override string ToString()
+        {
+
+            if (!CambiarInformacion)
+            {
+                return MostrarDescripcion();
+            }
+            else
+            {
+                return MostrarTipo();
+            }
+
+
         }
 
         // FIN SOBRECARGAS OPERADORES, TO, GETHASH, EQUALS
