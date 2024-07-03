@@ -7,7 +7,7 @@ namespace Entidades
     [XmlInclude(typeof(Metal))]
     [XmlInclude(typeof(NoMetal))]
     [XmlInclude(typeof(Gas))]
-    public abstract class Elemento
+    public abstract class Elemento : IcambiarInformacion 
     {
         //ATRIBUTOS
         protected int nAtomico;
@@ -19,7 +19,12 @@ namespace Entidades
         protected int protones;
         protected int neutrones;
         protected static string tipoElemento;
-        //ATRIBUTOS
+        //PROPIEDADES DE INTERFACE
+
+        public bool CambiarInformacion
+        {
+
+        }
 
         //PROPIEDADES
 

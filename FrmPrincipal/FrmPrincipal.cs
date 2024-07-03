@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Media;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.IO;
 
 namespace Frm
 {
@@ -24,7 +25,7 @@ namespace Frm
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Formulario principal.";
 
-            
+            Task tMusica = Task.Run(ReproducirMusica);
 
         }
 
@@ -585,6 +586,17 @@ namespace Frm
 
         private static void ReproducirMusica()
         {
+
+            using (SoundPlayer player = new SoundPlayer("./sound.wav"))
+            {
+                Thread.Sleep(300); // lo uso para que el msgbox de abajo aparezca despues del form principal
+                MessageBox.Show("Se prendio la musica");
+                for (int i = 0; i < 5; i++)
+                {
+                    player.PlaySync(); // Reproduce y espera hasta que termine para avanzar
+                }
+                MessageBox.Show("Se termino la musica");
+            }
 
         }
 
