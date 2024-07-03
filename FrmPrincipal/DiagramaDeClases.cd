@@ -1,56 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Entidades.Elemento">
-    <Position X="0.5" Y="0.5" Width="2.25" />
+    <Position X="0.5" Y="0.5" Width="6.25" />
     <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.Gas">
-    <Position X="3.25" Y="0.5" Width="2.5" />
+    <Position X="7" Y="0.5" Width="8.5" />
     <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.NoMetal">
-    <Position X="8.75" Y="0.5" Width="2.5" />
+    <Position X="7" Y="9" Width="10.5" />
     <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.Metal">
-    <Position X="6" Y="0.5" Width="2.5" />
+    <Position X="7" Y="4.75" Width="10.75" />
     <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.Laboratorio">
-    <Position X="3.25" Y="4.5" Width="2.75" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="ECategoriasMetales">
-    <Position X="15.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="ECategoriasGases">
-    <Position X="11.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="ECategoriasNoMetales">
-    <Position X="13.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="EEstados">
-    <Position X="13.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="ETamaños">
-    <Position X="15.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="AtributosElemento">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Position X="0.75" Y="9" Width="5.25" />
     <TypeIdentifier />
   </Class>
   <Class Name="Entidades.Serializacion">
-    <Position X="10" Y="5.5" Width="1.5" />
+    <Position X="18" Y="11.25" Width="3.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="Entidades.Usuario">
-    <Position X="8.25" Y="5.25" Width="1.5" />
+    <Position X="21.75" Y="10.75" Width="2.25" />
     <TypeIdentifier />
   </Class>
+  <Class Name="Entidades.ExceptionNoList">
+    <Position X="18" Y="9.5" Width="3.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Entidades.AccesoDatos">
+    <Position X="18.25" Y="6.75" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ECategoriasMetales">
+    <Position X="16" Y="3" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ECategoriasGases">
+    <Position X="22.25" Y="3.25" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ECategoriasNoMetales">
+    <Position X="19" Y="3.25" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EEstados">
+    <Position X="19.5" Y="0.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ETamaños">
+    <Position X="22.25" Y="0.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="AtributosElemento">
+    <Position X="16" Y="0.5" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Entidades.IcambiarInformacion">
+    <Position X="21.75" Y="8.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

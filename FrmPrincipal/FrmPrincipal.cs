@@ -4,6 +4,7 @@ using System.Threading;
 using System.Media;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.IO;
+using System.Linq.Expressions;
 
 namespace Frm
 {
@@ -14,6 +15,9 @@ namespace Frm
         private int lvIndex;
         private List<Elemento> listaEnUso;
         private Usuario usuarioEnUso;
+        private Color[] colores = { Color.Aquamarine, Color.SpringGreen, Color.DarkSlateGray, Color.Plum, Color.MediumPurple, Color.PaleTurquoise };
+        private int indiceColor = 0;
+        private List<Button> listaBotones;
 
 
         public FrmPrincipal()
@@ -27,7 +31,47 @@ namespace Frm
 
             Task tMusica = Task.Run(ReproducirMusica);
 
+            this.btn.Click += this.EventoPersonalizado;
+            AñadirBotonesLista();
+
         }
+
+        #region evento
+
+        public void EventoPersonalizado(object sender, EventArgs e)
+        {
+
+            if (this.indiceColor == colores.Length) { this.indiceColor = 0; }
+
+            foreach (Button b in listaBotones)
+            {
+
+                b.BackColor = colores[this.indiceColor];
+
+            }
+
+            indiceColor++;
+
+        }
+
+        private void AñadirBotonesLista()
+        {
+            listaBotones = new List<Button>
+            {
+                btnAñadirLaboratorio,
+                btnAñadir,
+                btnModificar,
+                BtnEliminar,
+                btnModificarDatoBD,
+                btnEliminarDatoBD,
+                btnSubirBD,
+                btnTraerBD,
+                btnCambiarInformacion,
+                btn
+            };
+        }
+
+        #endregion
 
         public FrmPrincipal(Usuario usuarioExitoso) : this()
         {
@@ -493,69 +537,72 @@ namespace Frm
         private void btnModificarDatoBD_Click(object sender, EventArgs e)
         {
 
-            if (lstVisorElementos.SelectedItems.Count == 1)
+            try
             {
-                int indice = this.lstVisorElementos.SelectedIndices[0];
-                Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
+                if (this.laboratorios == null || this.laboratorios.Count == 0) { throw new ExceptionNoList("No hay ningun laboratorio:p"); }
 
-                if (indice != -1)
+                if (lstVisorElementos.SelectedItems.Count == 1)
                 {
+                    int indice = this.lstVisorElementos.SelectedIndices[0];
+                    Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
 
-                    AccesoDatos ado = new AccesoDatos();
-
-                    if (laboratorioSeleccionado.Elementos[indice] is Gas gas)
+                    if (indice != -1)
                     {
-                        FrmGas frmGas = new(gas);
-                        frmGas.ShowDialog();
 
-                        if (frmGas.DialogResult == DialogResult.OK)
+                        AccesoDatos ado = new AccesoDatos();
+
+                        if (laboratorioSeleccionado.Elementos[indice] is Gas gas)
                         {
-                            laboratorioSeleccionado.Elementos[indice] = frmGas.MiElemento;
-                            bool rta = ado.ModificarElemento(frmGas.MiElemento);
-                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            FrmGas frmGas = new(gas);
+                            frmGas.ShowDialog();
 
-                            if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
-                            else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                            if (frmGas.DialogResult == DialogResult.OK)
+                            {
+                                laboratorioSeleccionado.Elementos[indice] = frmGas.MiElemento;
+                                bool rta = ado.ModificarElemento(frmGas.MiElemento);
+                                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+
+                                if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
+                                else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                            }
                         }
+                        else if (laboratorioSeleccionado.Elementos[indice] is NoMetal nm)
+                        {
+                            FrmNoMetal frmNoMetal = new(nm);
+                            frmNoMetal.ShowDialog();
+
+                            if (frmNoMetal.DialogResult == DialogResult.OK)
+                            {
+                                laboratorioSeleccionado.Elementos[indice] = frmNoMetal.MiElemento;
+                                bool rta = ado.ModificarElemento(frmNoMetal.MiElemento);
+                                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                                if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
+                                else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                            }
+                        }
+                        else if (laboratorioSeleccionado.Elementos[indice] is Metal metal)
+                        {
+                            FrmMetal frmMetal = new(metal);
+                            frmMetal.ShowDialog();
+                            if (frmMetal.DialogResult == DialogResult.OK)
+                            {
+                                laboratorioSeleccionado.Elementos[indice] = frmMetal.MiElemento;
+                                bool rta = ado.ModificarElemento(frmMetal.MiElemento);
+                                ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                                if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
+                                else { MessageBox.Show("No se pudieron aplicar los cambios"); }
+                            }
+                        }
+
                     }
-                    else if (laboratorioSeleccionado.Elementos[indice] is NoMetal nm)
+                    else
                     {
-                        FrmNoMetal frmNoMetal = new(nm);
-                        frmNoMetal.ShowDialog();
-
-                        if (frmNoMetal.DialogResult == DialogResult.OK)
-                        {
-                            laboratorioSeleccionado.Elementos[indice] = frmNoMetal.MiElemento;
-                            bool rta = ado.ModificarElemento(frmNoMetal.MiElemento);
-                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                            if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
-                            else { MessageBox.Show("No se pudieron aplicar los cambios"); }
-                        }
-                    }
-                    else if (laboratorioSeleccionado.Elementos[indice] is Metal metal)
-                    {
-                        FrmMetal frmMetal = new(metal);
-                        frmMetal.ShowDialog();
-                        if (frmMetal.DialogResult == DialogResult.OK)
-                        {
-                            laboratorioSeleccionado.Elementos[indice] = frmMetal.MiElemento;
-                            bool rta = ado.ModificarElemento(frmMetal.MiElemento);
-                            ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                            if (rta) { MessageBox.Show("Se aplicaron los cambios"); }
-                            else { MessageBox.Show("No se pudieron aplicar los cambios"); }
-                        }
+                        MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione un elemento para modificar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-
-
             }
-
+            catch (ExceptionNoList) { MessageBox.Show(" - excepcion personalizada - \n Se requiere de un laboratorio"); }
 
 
         }
@@ -563,47 +610,51 @@ namespace Frm
         private void btnEliminarDatoBD_Click(object sender, EventArgs e)
         {
 
-
-
-            if (lstVisorElementos.SelectedItems.Count == 1)
+            try
             {
-                Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
-                int indice = this.lstVisorElementos.SelectedIndices[0];
+                if (this.laboratorios == null || this.laboratorios.Count == 0) { throw new ExceptionNoList("No hay ningun laboratorio:p"); }
 
-                if (indice != -1)
+
+                if (lstVisorElementos.SelectedItems.Count == 1)
                 {
+                    Laboratorio laboratorioSeleccionado = this.laboratorios[lvIndex];
+                    int indice = this.lstVisorElementos.SelectedIndices[0];
 
-
-                    DialogResult confirm = MessageBox.Show("¿Estás seguro de que deseas eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (confirm == DialogResult.OK)
+                    if (indice != -1)
                     {
 
-                        AccesoDatos ado = new AccesoDatos();
 
-                        if (this.listaEnUso == null)
+                        DialogResult confirm = MessageBox.Show("¿Estás seguro de que deseas eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (confirm == DialogResult.OK)
                         {
-                            bool rta = ado.EliminarElemento(laboratorioSeleccionado.Elementos[indice]);
-                            laboratorioSeleccionado.Elementos.RemoveAt(indice);
-                            this.ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
-                            if (rta) { MessageBox.Show("Elemento eliminado correctamente"); }
-                            else { MessageBox.Show("No se pudo eliminar el elemento"); }
 
-                        }
-                        else
-                        {
-                            bool rta = ado.EliminarElemento(this.listaEnUso[indice]);
-                            this.laboratorios[lvIndex].Elementos.Remove(this.listaEnUso[indice]);
-                            this.ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                            AccesoDatos ado = new AccesoDatos();
 
-                            if (rta) { MessageBox.Show("Elemento eliminado correctamente"); }
-                            else { MessageBox.Show("No se pudo eliminar el elemento"); }
+                            if (this.listaEnUso == null)
+                            {
+                                bool rta = ado.EliminarElemento(laboratorioSeleccionado.Elementos[indice]);
+                                laboratorioSeleccionado.Elementos.RemoveAt(indice);
+                                this.ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+                                if (rta) { MessageBox.Show("Elemento eliminado correctamente"); }
+                                else { MessageBox.Show("No se pudo eliminar el elemento"); }
+
+                            }
+                            else
+                            {
+                                bool rta = ado.EliminarElemento(this.listaEnUso[indice]);
+                                this.laboratorios[lvIndex].Elementos.Remove(this.listaEnUso[indice]);
+                                this.ActualizarVisorElementos(laboratorioSeleccionado.Elementos);
+
+                                if (rta) { MessageBox.Show("Elemento eliminado correctamente"); }
+                                else { MessageBox.Show("No se pudo eliminar el elemento"); }
+                            }
                         }
                     }
                 }
 
-
             }
+            catch (ExceptionNoList) { MessageBox.Show(" - excepcion personalizada - \n Se requiere de un laboratorio"); }
 
 
 
@@ -629,7 +680,7 @@ namespace Frm
         {
             if (this.laboratorios.Count > 0)
             {
-                List<Elemento> laboratorio = this.laboratorios[0].Elementos; 
+                List<Elemento> laboratorio = this.laboratorios[0].Elementos;
 
                 foreach (Elemento ele in laboratorio)
                 {
@@ -639,6 +690,7 @@ namespace Frm
                 this.ActualizarVisorElementos(laboratorio);
 
             }
+            else { MessageBox.Show("Se requiere un laboratorio con datos"); }
 
 
 

@@ -74,6 +74,7 @@
             btnModificarDatoBD = new Button();
             btnEliminarDatoBD = new Button();
             btnCambiarInformacion = new Button();
+            btn = new Button();
             grpElementos.SuspendLayout();
             grpbOrdenar.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -499,7 +500,7 @@
             // 
             btnCambiarInformacion.BackColor = Color.PaleTurquoise;
             btnCambiarInformacion.Cursor = Cursors.Hand;
-            btnCambiarInformacion.Location = new Point(737, 332);
+            btnCambiarInformacion.Location = new Point(708, 336);
             btnCambiarInformacion.Margin = new Padding(25);
             btnCambiarInformacion.Name = "btnCambiarInformacion";
             btnCambiarInformacion.Size = new Size(87, 43);
@@ -508,11 +509,24 @@
             btnCambiarInformacion.UseVisualStyleBackColor = false;
             btnCambiarInformacion.Click += btnCambiarInformacion_Click;
             // 
+            // btn
+            // 
+            btn.BackColor = Color.PaleTurquoise;
+            btn.Cursor = Cursors.Hand;
+            btn.Location = new Point(806, 322);
+            btn.Margin = new Padding(25);
+            btn.Name = "btn";
+            btn.Size = new Size(47, 71);
+            btn.TabIndex = 18;
+            btn.Text = "event colors :D";
+            btn.UseVisualStyleBackColor = false;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(858, 532);
+            Controls.Add(btn);
             Controls.Add(btnCambiarInformacion);
             Controls.Add(btnEliminarDatoBD);
             Controls.Add(btnModificarDatoBD);
@@ -590,5 +604,6 @@
         private Button btnModificarDatoBD;
         private Button btnEliminarDatoBD;
         private Button btnCambiarInformacion;
+        private Button btn;
     }
 }
