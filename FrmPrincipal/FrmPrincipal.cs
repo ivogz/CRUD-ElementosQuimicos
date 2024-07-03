@@ -1,4 +1,7 @@
 using Entidades;
+using System;
+using System.Threading;
+using System.Media;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Frm
@@ -20,6 +23,8 @@ namespace Frm
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Formulario principal.";
+
+            
 
         }
 
@@ -577,5 +582,12 @@ namespace Frm
 
 
         }
+
+        private static void ReproducirMusica()
+        {
+
+        }
+
+
     }
 }
